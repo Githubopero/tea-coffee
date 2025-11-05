@@ -1,7 +1,12 @@
 package com.example.teacoffee;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,6 +14,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.teacoffee.myDB.Account;
 import com.example.teacoffee.myDB.Food;
 import com.example.teacoffee.myDB.FoodCategory;
 import com.example.teacoffee.myDB.MyDatabase;
@@ -17,29 +23,55 @@ import com.example.teacoffee.myDB.TableEntity;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-
+    private EditText edtUser, edtPass;
+    private Button btnLogin;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
-        // ====== KÍCH HOẠT TẠO DB LẦN ĐẦU (để Room chạy seed trong MyDatabase) ======
-        // Gọi DAO bất kỳ sẽ khiến Room build database -> onCreate() callback chạy và insert dữ liệu mẫu.
-        MyDatabase db = MyDatabase.getINSTANCE(this);                             // <-- (1) có thể xoá sau
+
+        // 1) Ánh xạ view
+        edtUser  = findViewById(R.id.username);
+        edtPass  = findViewById(R.id.password);
+        btnLogin = findViewById(R.id.loginButton);
+
+        // 2) Ép mở DB (để Inspector luôn thấy connected & callback onCreate đã seed)
+        MyDatabase db = MyDatabase.getINSTANCE(this);
         db.getOpenHelper().getWritableDatabase();
 
-        List<TableEntity> tables = db.getTableDAO().getAll();                     // <-- (2) có thể xoá sau
-        List<FoodCategory> cats   = db.getFoodCategoryDAO().getAll();             // <-- (2) có thể xoá sau
-        List<Food> foods         = db.getFoodDAO().getAll();                      // <-- (2) có thể xoá sau
-        Log.d("DB_CHECK", "Tables=" + tables.size() + ", Cats=" + cats.size() + ", Foods=" + foods.size()); // <-- (3) có thể xoá sau
-        Log.d("DB_CHECK", "foods=" + db.getFoodDAO().countAll());
-        // ===========================================================================
+        // 3) Xử lý đăng nhập
+        btnLogin.setOnClickListener(v -> {
+            String u = edtUser.getText().toString().trim();
+            String p = edtPass.getText().toString().trim();
 
-        // TODO: phần UI thật sự của bạn ở dưới...
+            // 3.1) Validate đơn giản
+            if (TextUtils.isEmpty(u) || TextUtils.isEmpty(p)) {
+                Toast.makeText(this, "Vui lòng nhập đủ Username và Password", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            // 3.2) Gọi DAO: nếu sai trả về null
+            Account acc = db.getAccountDAO().login(u, p);
+
+            if (acc == null) {
+                Toast.makeText(this, "Sai tài khoản hoặc mật khẩu!", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            // 3.3) Điều hướng theo quyền
+            if ("ADMIN".equalsIgnoreCase(acc.Type)) {
+                // Mở màn hình admin
+                Intent it = new Intent(this, AdminActivity.class);
+                it.putExtra("displayName", acc.Display_Name);
+                startActivity(it);
+            } else {
+                // Mở màn hình staff
+                Intent it = new Intent(this, UserHomeActivity.class);
+                it.putExtra("displayName", acc.Display_Name);
+                startActivity(it);
+            }
+        });
     }
+
 }

@@ -16,7 +16,8 @@ public interface FoodDAO {
     List<Food> getByCategory(int categoryId);
     @Query("SELECT COUNT(*) FROM Food")
     int countAll();
-
+    @Query("SELECT * FROM Food WHERE Food_Id = :id LIMIT 1")
+    Food getById(int id);
     @Insert void insert(Food f);
     @Update void update(Food f);
     @Delete void delete(Food f);

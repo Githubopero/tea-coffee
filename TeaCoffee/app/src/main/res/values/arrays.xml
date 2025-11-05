@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="table_list">
+        <item>Bàn số 1</item>
+        <item>Bàn số 2</item>
+        <item>Bàn số 3</item>
+        <item>Bàn số 4</item>
+        <item>Bàn số 5</item>
+        <item>Bàn số 6</item>
+        <item>Bàn số 7</item>
+        <item>Bàn số 8</item>
+        <item>Bàn số 9</item>
+        <item>Bàn số 10</item>
+        <item>Bàn số 11</item>
+        <item>Bàn số 12</item>
+        <item>Bàn số 13</item>
+        <item>Bàn số 14</item>
+        <item>Bàn số 15</item>
+        <item>Bàn số 16</item>
+        <item>Bàn số 17</item>
+        <item>Bàn số 18</item>
+        <item>Bàn số 19</item>
+        <item>Bàn số 20</item>
+    </string-array>
+</resources>

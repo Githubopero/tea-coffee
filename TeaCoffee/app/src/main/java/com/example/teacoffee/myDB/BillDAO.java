@@ -14,8 +14,10 @@ public interface BillDAO {
 
     @Query("SELECT * FROM Bill WHERE Table_Id = :tableId AND Status = :status")
     List<Bill> getByTableAndStatus(int tableId, String status);
-
-    @Insert void insert(Bill b);
+    @Query("SELECT * FROM Bill WHERE Table_Id = :tableId AND Status = 0 LIMIT 1")
+    Bill getOpenByTable(int tableId);  // bàn đang mở (chưa thanh toán)
+    @Insert
+    long insert(Bill b);
     @Update void update(Bill b);
     @Delete void delete(Bill b);
 }
