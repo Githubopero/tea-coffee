@@ -52,6 +52,22 @@ public abstract class MyDatabase extends RoomDatabase {
                                     super.onCreate(db);
 
                                     Executors.newSingleThreadExecutor().execute(() -> {
+                                        // ===== 0) Account mẫu =====
+                                        // admin / 123456
+                                        Account admin = new Account();
+                                        admin.User_Name = "admin";
+                                        admin.Password  = "123456";
+                                        admin.Type      = "ADMIN";
+                                        admin.Display_Name = "Quản trị viên";
+                                        getINSTANCE(context).getAccountDAO().insert(admin);
+
+                                        // user / 123456
+                                        Account user = new Account();
+                                        user.User_Name = "user";
+                                        user.Password  = "123456";
+                                        user.Type      = "STAFF";
+                                        user.Display_Name = "Nhân Viên";
+                                        getINSTANCE(context).getAccountDAO().insert(user);
                                         // ===== 1) 20 bàn =====
                                         for (int i = 1; i <= 20; i++) {
                                             // Vì bạn đang dùng @Entity(tableName = "Cafe_Table") + Status int
