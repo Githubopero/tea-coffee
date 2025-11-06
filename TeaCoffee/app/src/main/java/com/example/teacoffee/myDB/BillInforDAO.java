@@ -9,8 +9,6 @@ import java.util.List;
 
 @Dao
 public interface BillInforDAO {
-    @Query("SELECT * FROM Bill_Infor WHERE Bill_Id = :billId")
-    List<BillInfor> getByBill(int billId);
 
     @Insert void insert(BillInfor bi);
     @Update void update(BillInfor bi);
@@ -19,4 +17,9 @@ public interface BillInforDAO {
     // Xoá toàn bộ chi tiết của một bill
     @Query("DELETE FROM Bill_Infor WHERE Bill_Id = :billId")
     void deleteByBill(int billId);
+    @Query("SELECT * FROM Bill_Infor WHERE Bill_Id = :billId AND Food_Id = :foodId LIMIT 1")
+    BillInfor findByBillAndFood(int billId, int foodId);
+    @Query("SELECT * FROM Bill_Infor WHERE Bill_Id = :billId")
+    List<BillInfor> getByBillId(int billId);
+
 }
