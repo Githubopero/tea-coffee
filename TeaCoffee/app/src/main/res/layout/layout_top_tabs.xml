@@ -9,8 +9,9 @@
     android:gravity="center"
     android:layout_marginTop="16dp">
 
-    <!-- Đặt bàn (active) -->
+    <!-- Đặt bàn -->
     <LinearLayout
+        android:id="@+id/tabReserve"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_weight="1"
@@ -18,12 +19,14 @@
         android:background="@drawable/bg_chip_active">
 
         <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivReserve"
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:src="@drawable/ic_reserve"
             app:tint="@android:color/white" />
 
         <TextView
+            android:id="@+id/tvReserve"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Đặt bàn"
@@ -33,8 +36,9 @@
             tools:ignore="HardcodedText" />
     </LinearLayout>
 
-    <!-- Order (inactive) -->
+    <!-- Order -->
     <LinearLayout
+        android:id="@+id/tabOrder"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_weight="1"
@@ -42,12 +46,14 @@
         android:background="@drawable/bg_chip_inactive">
 
         <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivOrder"
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:src="@drawable/ic_order"
             app:tint="#4E4E4E" />
 
         <TextView
+            android:id="@+id/tvOrder"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Order"
@@ -56,8 +62,9 @@
             tools:ignore="HardcodedText" />
     </LinearLayout>
 
-    <!-- Thanh toán (inactive) -->
+    <!-- Thanh toán -->
     <LinearLayout
+        android:id="@+id/tabPayment"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_weight="1"
@@ -65,12 +72,14 @@
         android:background="@drawable/bg_chip_inactive">
 
         <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivPayment"
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:src="@drawable/ic_payment"
             app:tint="#4E4E4E" />
 
         <TextView
+            android:id="@+id/tvPayment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Thanh toán"

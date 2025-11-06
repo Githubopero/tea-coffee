@@ -72,7 +72,7 @@ public abstract class MyDatabase extends RoomDatabase {
                                         for (int i = 1; i <= 20; i++) {
                                             // Vì bạn đang dùng @Entity(tableName = "Cafe_Table") + Status int
                                             db.execSQL("INSERT INTO `Cafe_Table`(Table_Name, Status) VALUES(?, ?)",
-                                                    new Object[]{"Bàn " + i, "0"});
+                                                    new Object[]{"Bàn " + i, 0});
                                         }
 
                                         // ===== 2) Danh mục =====
