@@ -62,9 +62,10 @@ public class MainActivity extends AppCompatActivity {
             // 3.3) Điều hướng theo quyền
             if ("ADMIN".equalsIgnoreCase(acc.Type)) {
                 // Mở màn hình admin
-                Intent it = new Intent(this, AdminActivity.class);
+                Intent it = new Intent(this, AdminHomeActivity.class);
                 it.putExtra("displayName", acc.Display_Name);
                 startActivity(it);
+                //thêm sửa xóa nhân viên = tài khoản nhân viên
             } else {
                 // Mở màn hình staff
                 Intent it = new Intent(this, UserHomeActivity.class);
