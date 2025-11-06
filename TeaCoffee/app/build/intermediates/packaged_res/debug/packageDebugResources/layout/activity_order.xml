@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:background="@android:color/white"
+    android:padding="12dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- HEADER -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/tvBrand"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="The TeaCoffee"
+            android:textStyle="italic"
+            android:textSize="26sp"
+            android:textColor="#2E7D32"
+            android:fontFamily="cursive"
+            tools:ignore="HardcodedText" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:src="@drawable/ic_menu_24"
+            app:tint="#4E4E4E" />
+    </LinearLayout>
+
+    <!-- Thanh tab trạng thái (không bấm) -->
+    <include layout="@layout/layout_top_tabs" />
+
+    <!-- DANH MỤC (chips/ buttons sẽ được tạo động, nhưng có thể để vài nút mẫu) -->
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:id="@+id/catContainer"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <!-- Ví dụ vài chip mẫu; khi code chạy có thể thêm/xoá động -->
+            <Button android:text="Coffee" style="@style/ChipCategory" tools:ignore="HardcodedText"/>
+            <Button android:text="Trà" style="@style/ChipCategory" tools:ignore="HardcodedText"/>
+            <Button android:text="Nước ép" style="@style/ChipCategory" tools:ignore="HardcodedText"/>
+            <Button android:text="Sinh tố" style="@style/ChipCategory" tools:ignore="HardcodedText"/>
+            <Button android:text="Khác" style="@style/ChipCategory" tools:ignore="HardcodedText"/>
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <!-- TIÊU ĐỀ HÓA ĐƠN + CHỌN BÀN -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:paddingVertical="8dp"
+        android:background="#F9F9F9"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/tvBillTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Chi tiết hóa đơn"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#333"
+            tools:ignore="HardcodedText"/>
+
+        <Spinner
+            android:id="@+id/spnTable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:entries="@array/table_list" />
+    </LinearLayout>
+
+    <!-- DANH SÁCH MÓN (inflate item_order_row vào listContainer) -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:id="@+id/listContainer"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp" />
+    </ScrollView>
+
+    <!-- TỔNG KẾT + LƯU -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#F9F9F9"
+        android:padding="8dp"
+        android:layout_marginTop="4dp">
+
+        <TextView
+            android:id="@+id/tvTotalQty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tổng số lượng: 0"
+            tools:ignore="HardcodedText"/>
+
+        <TextView
+            android:id="@+id/tvSubtotal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tiền hàng: 0đ"
+            tools:ignore="HardcodedText"/>
+
+        <TextView
+            android:id="@+id/tvDiscount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Chiết khấu: 0%"
+            tools:ignore="HardcodedText"/>
+
+        <TextView
+            android:id="@+id/tvGrandTotal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Thành tiền: 0đ"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText"/>
+
+        <Button
+            android:id="@+id/btnSave"
+            android:text="Lưu"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="8dp"
+            android:backgroundTint="#1976D2"
+            android:textColor="@android:color/white"
+            tools:ignore="HardcodedText"/>
+    </LinearLayout>
+
+</LinearLayout>

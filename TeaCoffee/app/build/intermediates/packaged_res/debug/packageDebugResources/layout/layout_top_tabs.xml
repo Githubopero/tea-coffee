@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center"
+    android:layout_marginTop="16dp">
+
+    <!-- Đặt bàn -->
+    <LinearLayout
+        android:id="@+id/tabReserve"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:background="@drawable/bg_chip_active">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivReserve"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_reserve"
+            app:tint="@android:color/white" />
+
+        <TextView
+            android:id="@+id/tvReserve"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Đặt bàn"
+            android:layout_marginStart="6dp"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText" />
+    </LinearLayout>
+
+    <!-- Order -->
+    <LinearLayout
+        android:id="@+id/tabOrder"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:background="@drawable/bg_chip_inactive">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivOrder"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_order"
+            app:tint="#4E4E4E" />
+
+        <TextView
+            android:id="@+id/tvOrder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Order"
+            android:layout_marginStart="6dp"
+            android:textColor="#4E4E4E"
+            tools:ignore="HardcodedText" />
+    </LinearLayout>
+
+    <!-- Thanh toán -->
+    <LinearLayout
+        android:id="@+id/tabPayment"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:background="@drawable/bg_chip_inactive">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivPayment"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_payment"
+            app:tint="#4E4E4E" />
+
+        <TextView
+            android:id="@+id/tvPayment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Thanh toán"
+            android:layout_marginStart="6dp"
+            android:textColor="#4E4E4E"
+            tools:ignore="HardcodedText" />
+    </LinearLayout>
+</LinearLayout>
