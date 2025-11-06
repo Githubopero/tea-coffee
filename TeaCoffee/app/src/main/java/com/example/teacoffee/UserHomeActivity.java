@@ -137,5 +137,23 @@ public class UserHomeActivity extends AppCompatActivity {
     private int dp(int value) {
         return Math.round(value * getResources().getDisplayMetrics().density);
     }
+    private void activateTabsForReserve(){
+        View tabReserve = findViewById(R.id.tabReserve);
+        View tabOrder   = findViewById(R.id.tabOrder);
+        View tabPayment = findViewById(R.id.tabPayment);
+
+        tabReserve.setBackgroundResource(R.drawable.bg_chip_active);
+        tabOrder.setBackgroundResource(R.drawable.bg_chip_inactive);
+        tabPayment.setBackgroundResource(R.drawable.bg_chip_inactive);
+
+        ((android.widget.ImageView)findViewById(R.id.ivReserve)).setColorFilter(android.graphics.Color.WHITE);
+        ((android.widget.TextView)findViewById(R.id.tvReserve)).setTextColor(android.graphics.Color.WHITE);
+
+        ((android.widget.ImageView)findViewById(R.id.ivOrder)).setColorFilter(android.graphics.Color.parseColor("#4E4E4E"));
+        ((android.widget.TextView)findViewById(R.id.tvOrder)).setTextColor(android.graphics.Color.parseColor("#4E4E4E"));
+        ((android.widget.ImageView)findViewById(R.id.ivPayment)).setColorFilter(android.graphics.Color.parseColor("#4E4E4E"));
+        ((android.widget.TextView)findViewById(R.id.tvPayment)).setTextColor(android.graphics.Color.parseColor("#4E4E4E"));
+    }
+
 
 }
