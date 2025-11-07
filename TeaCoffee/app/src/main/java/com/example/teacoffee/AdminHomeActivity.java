@@ -24,7 +24,6 @@ import com.google.android.material.textfield.TextInputEditText;
 
 public class AdminHomeActivity extends AppCompatActivity {
 
-
     //Khai báo dữ liệu nút sản phẩm
     private Button btnSP;
     //=================================//
@@ -58,16 +57,6 @@ public class AdminHomeActivity extends AppCompatActivity {
         MaterialButton tabStaff = findViewById(R.id.btnTabStaff);
         if (tabStaff != null) tabs.check(tabStaff.getId());
 
-        btnSP = findViewById(R.id.btnTabProduct);
-        btnSP.setOnClickListener(v -> {
-            Intent intent = new Intent(AdminHomeActivity.this, AdminFoodManagement.class);
-            startActivity(intent);
-        });
-
-        //=================
-
-
-
         // ==== find views
         formContainer          = findViewById(R.id.formContainer);
         tvId                   = findViewById(R.id.tvId);
@@ -75,11 +64,19 @@ public class AdminHomeActivity extends AppCompatActivity {
         etUserName             = findViewById(R.id.etUserName);
         etPassword             = findViewById(R.id.etPassword);
         spType                 = findViewById(R.id.spType);
-        spAccountTypeFilter    = findViewById(R.id.ListDM);
+        spAccountTypeFilter    = findViewById(R.id.spAccountTypeFilter);
         btnConfirm             = findViewById(R.id.btnConfirm);
-        btnAddMode             = findViewById(R.id.btnAddSP);
-        btnEditMode            = findViewById(R.id.btnEditSP);
-        btnDeleteMode          = findViewById(R.id.btnDeleteSP);
+        btnAddMode             = findViewById(R.id.btnAddMode);
+        btnEditMode            = findViewById(R.id.btnEditMode);
+        btnDeleteMode          = findViewById(R.id.btnDeleteMode);
+
+        //Xử lý nút sản phẩm
+        btnSP = findViewById(R.id.btnTabProduct);
+        btnSP.setOnClickListener(v -> {
+            Intent intent = new Intent(AdminHomeActivity.this, AdminFoodManagement.class);
+            startActivity(intent);
+        });
+        //======================
 
         // ==== combobox Type trong form: mặc định "staff"
         spType.setSimpleItems(new String[]{"staff", "admin"});
@@ -91,7 +88,7 @@ public class AdminHomeActivity extends AppCompatActivity {
         spAccountTypeFilter.setOnItemClickListener((parent, view, position, id) -> reloadList());
 
         // ==== RecyclerView
-        RecyclerView rv = findViewById(R.id.lvSP);
+        RecyclerView rv = findViewById(R.id.rvStaff);
         adapter = new StaffAdapter((acc, pos) -> {
             if (mode != null && mode == Mode.EDIT) {
                 showForm(true);

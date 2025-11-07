@@ -106,7 +106,7 @@
                     app:hintEnabled="false">
 
                     <com.google.android.material.textfield.MaterialAutoCompleteTextView
-                        android:id="@+id/ListDM"
+                        android:id="@+id/spAccountTypeFilter"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:singleLine="true"
@@ -127,7 +127,7 @@
                 android:layout_marginBottom="12dp">
 
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnAddSP"
+                    android:id="@+id/btnAddMode"
                     style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -137,7 +137,7 @@
                     android:layout_marginEnd="8dp"/>
 
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnEditSP"
+                    android:id="@+id/btnEditMode"
                     style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -147,7 +147,7 @@
                     android:layout_marginEnd="8dp"/>
 
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnDeleteSP"
+                    android:id="@+id/btnDeleteMode"
                     style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -164,7 +164,7 @@
 
                 <!-- Danh sách tài khoản -->
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/lvSP"
+                    android:id="@+id/rvStaff"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:nestedScrollingEnabled="false"
