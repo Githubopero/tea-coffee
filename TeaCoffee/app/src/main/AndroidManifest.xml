@@ -11,11 +11,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TeaCoffee">
+
         <activity android:name=".AdminActivity"/>
         <activity android:name=".AdminHomeActivity"/>
         <activity android:name=".UserActivity"/>
         <activity android:name=".UserHomeActivity"/>
         <activity android:name=".OrderActivity"/>
+        <activity android:name=".AdminFoodManagement" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
