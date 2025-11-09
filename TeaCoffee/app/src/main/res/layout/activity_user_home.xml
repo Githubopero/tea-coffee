@@ -183,12 +183,12 @@
             tools:ignore="HardcodedText" />
 
         <Button
-            android:id="@+id/btnDelete"
+            android:id="@+id/btnPay"
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:layout_weight="1"
             android:layout_marginHorizontal="4dp"
-            android:text="Xóa"
+            android:text="Thanh toán"
             android:backgroundTint="#FBE9E7"
             android:textColor="#D84315"
             tools:ignore="HardcodedText" />

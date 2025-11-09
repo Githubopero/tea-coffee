@@ -2,5 +2,6 @@
     <string name="app_name">TeaCoffee</string>
     <string name="minus">Minus</string>
     <string name="plus">Plus</string>
+    <string name="untitled">QR thanh toán</string>
 
 </resources>
