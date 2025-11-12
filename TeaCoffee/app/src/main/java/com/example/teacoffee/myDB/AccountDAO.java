@@ -26,8 +26,11 @@ public interface AccountDAO {
     Account findByUsername(String username);
     @Query("SELECT * FROM Account WHERE UPPER(Type) = :type ORDER BY User_Id")
     List<Account> getByType(String type); // type: "ADMIN" | "STAFF"
-    @Query("DELETE FROM Account WHERE User_Name = :username")
-    int deleteByUsername(String username);
+    @Query("DELETE FROM Account WHERE User_Id = :id")
+    int deleteById(int id);  // hoặc int nếu PK của bạn là int
+
+//    @Query("DELETE FROM Account WHERE User_Name = :username")
+//    int deleteByUsername(String username);
     @Insert void insert(Account a);
     @Update void update(Account a);
     @Delete void delete(Account a);
