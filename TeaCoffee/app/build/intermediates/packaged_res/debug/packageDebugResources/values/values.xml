@@ -31,6 +31,7 @@
     <string name="app_name">TeaCoffee</string>
     <string name="minus">Minus</string>
     <string name="plus">Plus</string>
+    <string name="untitled">QR thanh toán</string>
     <style name="Base.Theme.TeaCoffee" parent="Theme.Material3.DayNight.NoActionBar">
         
         

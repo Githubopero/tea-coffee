@@ -94,6 +94,10 @@ public class AdminHomeActivity extends AppCompatActivity {
 
         showForm(false); // mặc định xem danh sách
         btnConfirm.setOnClickListener(v -> onConfirm());
+
+
+        // ✅ GỌI NavigationHelper để quản lý việc chuyển đổi Activity
+        NavigationHelper.setupAdminTabs(this, R.id.btnTabStaff);
     }
 
     private void showForm(boolean show) {

@@ -65,6 +65,14 @@
                     android:text="Sản phẩm"/>
 
                 <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnTabDanhMuc"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Danh Mục"/>
+
+                <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnTabStats"
                     style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                     android:layout_width="0dp"

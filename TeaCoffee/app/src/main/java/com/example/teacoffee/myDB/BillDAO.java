@@ -20,4 +20,10 @@ public interface BillDAO {
     long insert(Bill b);
     @Update void update(Bill b);
     @Delete void delete(Bill b);
+
+
+
+    // ✅ TRUY VẤN ĐÃ SỬA: SỬ DỤNG Status = '1' cho hóa đơn đã đóng
+    @Query("SELECT * FROM Bill WHERE Status = '1' AND Date_Checkout BETWEEN :startTime AND :endTime ORDER BY Date_Checkout DESC")
+    List<Bill> getClosedBillsInPeriod(long startTime, long endTime);
 }

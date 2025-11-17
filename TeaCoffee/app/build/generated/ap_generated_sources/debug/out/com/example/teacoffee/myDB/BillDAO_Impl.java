@@ -346,6 +346,69 @@ public final class BillDAO_Impl implements BillDAO {
     });
   }
 
+  @Override
+  public List<Bill> getClosedBillsInPeriod(final long startTime, final long endTime) {
+    final String _sql = "SELECT * FROM Bill WHERE Status = '1' AND Date_Checkout BETWEEN ? AND ? ORDER BY Date_Checkout DESC";
+    return DBUtil.performBlocking(__db, true, false, (_connection) -> {
+      final SQLiteStatement _stmt = _connection.prepare(_sql);
+      try {
+        int _argIndex = 1;
+        _stmt.bindLong(_argIndex, startTime);
+        _argIndex = 2;
+        _stmt.bindLong(_argIndex, endTime);
+        final int _columnIndexOfBillId = SQLiteStatementUtil.getColumnIndexOrThrow(_stmt, "Bill_Id");
+        final int _columnIndexOfDateCheckin = SQLiteStatementUtil.getColumnIndexOrThrow(_stmt, "Date_Checkin");
+        final int _columnIndexOfDateCheckout = SQLiteStatementUtil.getColumnIndexOrThrow(_stmt, "Date_Checkout");
+        final int _columnIndexOfStatus = SQLiteStatementUtil.getColumnIndexOrThrow(_stmt, "Status");
+        final int _columnIndexOfNote = SQLiteStatementUtil.getColumnIndexOrThrow(_stmt, "Note");
+        final int _columnIndexOfDiscount = SQLiteStatementUtil.getColumnIndexOrThrow(_stmt, "Discount");
+        final int _columnIndexOfTotalPrice = SQLiteStatementUtil.getColumnIndexOrThrow(_stmt, "Total_Price");
+        final int _columnIndexOfTableId = SQLiteStatementUtil.getColumnIndexOrThrow(_stmt, "Table_Id");
+        final List<Bill> _result = new ArrayList<Bill>();
+        while (_stmt.step()) {
+          final Bill _item;
+          _item = new Bill();
+          _item.Bill_Id = (int) (_stmt.getLong(_columnIndexOfBillId));
+          if (_stmt.isNull(_columnIndexOfDateCheckin)) {
+            _item.Date_Checkin = null;
+          } else {
+            _item.Date_Checkin = _stmt.getLong(_columnIndexOfDateCheckin);
+          }
+          if (_stmt.isNull(_columnIndexOfDateCheckout)) {
+            _item.Date_Checkout = null;
+          } else {
+            _item.Date_Checkout = _stmt.getLong(_columnIndexOfDateCheckout);
+          }
+          if (_stmt.isNull(_columnIndexOfStatus)) {
+            _item.Status = null;
+          } else {
+            _item.Status = _stmt.getText(_columnIndexOfStatus);
+          }
+          if (_stmt.isNull(_columnIndexOfNote)) {
+            _item.Note = null;
+          } else {
+            _item.Note = _stmt.getText(_columnIndexOfNote);
+          }
+          if (_stmt.isNull(_columnIndexOfDiscount)) {
+            _item.Discount = null;
+          } else {
+            _item.Discount = (int) (_stmt.getLong(_columnIndexOfDiscount));
+          }
+          if (_stmt.isNull(_columnIndexOfTotalPrice)) {
+            _item.Total_Price = null;
+          } else {
+            _item.Total_Price = (int) (_stmt.getLong(_columnIndexOfTotalPrice));
+          }
+          _item.Table_Id = (int) (_stmt.getLong(_columnIndexOfTableId));
+          _result.add(_item);
+        }
+        return _result;
+      } finally {
+        _stmt.close();
+      }
+    });
+  }
+
   @NonNull
   public static List<Class<?>> getRequiredConverters() {
     return Collections.emptyList();

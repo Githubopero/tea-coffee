@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\my pc\Documents\GitHub\tea-coffee\TeaCoffee\app\src\main\AndroidManifest.xml:2:1-30:12
-INJECTED from C:\Users\my pc\Documents\GitHub\tea-coffee\TeaCoffee\app\src\main\AndroidManifest.xml:2:1-30:12
-INJECTED from C:\Users\my pc\Documents\GitHub\tea-coffee\TeaCoffee\app\src\main\AndroidManifest.xml:2:1-30:12
-INJECTED from C:\Users\my pc\Documents\GitHub\tea-coffee\TeaCoffee\app\src\main\AndroidManifest.xml:2:1-30:12
+ADDED from C:\Users\my pc\Documents\GitHub\tea-coffee\TeaCoffee\app\src\main\AndroidManifest.xml:2:1-34:12
+INJECTED from C:\Users\my pc\Documents\GitHub\tea-coffee\TeaCoffee\app\src\main\AndroidManifest.xml:2:1-34:12
+INJECTED from C:\Users\my pc\Documents\GitHub\tea-coffee\TeaCoffee\app\src\main\AndroidManifest.xml:2:1-34:12
+INJECTED from C:\Users\my pc\Documents\GitHub\tea-coffee\TeaCoffee\app\src\main\AndroidManifest.xml:2:1-34:12
 MERGED from [androidx.room:room-runtime-android:2.8.3] C:\Users\my pc\.gradle\caches\8.13\transforms\d18d0c079678113b276a92a85e2aa0e7\transformed\room-runtime\AndroidManifest.xml:17:1-31:12
 MERGED from [com.google.android.material:material:1.13.0] C:\Users\my pc\.gradle\caches\8.13\transforms\bde89b41eb009ec239022bc4694d805b\transformed\material-1.13.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.2.1] C:\Users\my pc\.gradle\caches\8.13\transforms\c6488655cccd861eb5621874cddf8eee\transformed\constraintlayout-2.2.1\AndroidManifest.xml:2:1-9:12
@@ -57,8 +57,8 @@ MERGED from [androidx.annotation:annotation-experimental:1.5.0] C:\Users\my pc\.
 	xmlns:android
 		ADDED from C:\Users\my pc\Documents\GitHub\tea-coffee\TeaCoffee\app\src\main\AndroidManifest.xml:2:11-69
 application
-ADDED from C:\Users\my pc\Documents\GitHub\tea-coffee\TeaCoffee\app\src\main\AndroidManifest.xml:5:5-28:19
-INJECTED from C:\Users\my pc\Documents\GitHub\tea-coffee\TeaCoffee\app\src\main\AndroidManifest.xml:5:5-28:19
+ADDED from C:\Users\my pc\Documents\GitHub\tea-coffee\TeaCoffee\app\src\main\AndroidManifest.xml:5:5-32:19
+INJECTED from C:\Users\my pc\Documents\GitHub\tea-coffee\TeaCoffee\app\src\main\AndroidManifest.xml:5:5-32:19
 MERGED from [androidx.room:room-runtime-android:2.8.3] C:\Users\my pc\.gradle\caches\8.13\transforms\d18d0c079678113b276a92a85e2aa0e7\transformed\room-runtime\AndroidManifest.xml:23:5-29:19
 MERGED from [androidx.room:room-runtime-android:2.8.3] C:\Users\my pc\.gradle\caches\8.13\transforms\d18d0c079678113b276a92a85e2aa0e7\transformed\room-runtime\AndroidManifest.xml:23:5-29:19
 MERGED from [com.google.android.material:material:1.13.0] C:\Users\my pc\.gradle\caches\8.13\transforms\bde89b41eb009ec239022bc4694d805b\transformed\material-1.13.0\AndroidManifest.xml:22:5-20
@@ -97,42 +97,52 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\my
 		ADDED from C:\Users\my pc\Documents\GitHub\tea-coffee\TeaCoffee\app\src\main\AndroidManifest.xml:13:9-47
 	android:dataExtractionRules
 		ADDED from C:\Users\my pc\Documents\GitHub\tea-coffee\TeaCoffee\app\src\main\AndroidManifest.xml:7:9-65
-activity#com.example.teacoffee.AdminActivity
-ADDED from C:\Users\my pc\Documents\GitHub\tea-coffee\TeaCoffee\app\src\main\AndroidManifest.xml:14:9-50
+activity#com.example.teacoffee.ReportActivity
+ADDED from C:\Users\my pc\Documents\GitHub\tea-coffee\TeaCoffee\app\src\main\AndroidManifest.xml:14:9-16:40
+	android:exported
+		ADDED from C:\Users\my pc\Documents\GitHub\tea-coffee\TeaCoffee\app\src\main\AndroidManifest.xml:16:13-37
 	android:name
-		ADDED from C:\Users\my pc\Documents\GitHub\tea-coffee\TeaCoffee\app\src\main\AndroidManifest.xml:14:19-48
-activity#com.example.teacoffee.AdminHomeActivity
-ADDED from C:\Users\my pc\Documents\GitHub\tea-coffee\TeaCoffee\app\src\main\AndroidManifest.xml:15:9-54
-	android:name
-		ADDED from C:\Users\my pc\Documents\GitHub\tea-coffee\TeaCoffee\app\src\main\AndroidManifest.xml:15:19-52
-activity#com.example.teacoffee.UserActivity
-ADDED from C:\Users\my pc\Documents\GitHub\tea-coffee\TeaCoffee\app\src\main\AndroidManifest.xml:16:9-49
-	android:name
-		ADDED from C:\Users\my pc\Documents\GitHub\tea-coffee\TeaCoffee\app\src\main\AndroidManifest.xml:16:19-47
-activity#com.example.teacoffee.UserHomeActivity
+		ADDED from C:\Users\my pc\Documents\GitHub\tea-coffee\TeaCoffee\app\src\main\AndroidManifest.xml:15:13-43
+activity#com.example.teacoffee.PaymentActivity
 ADDED from C:\Users\my pc\Documents\GitHub\tea-coffee\TeaCoffee\app\src\main\AndroidManifest.xml:17:9-53
 	android:name
-		ADDED from C:\Users\my pc\Documents\GitHub\tea-coffee\TeaCoffee\app\src\main\AndroidManifest.xml:17:19-51
+		ADDED from C:\Users\my pc\Documents\GitHub\tea-coffee\TeaCoffee\app\src\main\AndroidManifest.xml:17:19-50
 activity#com.example.teacoffee.OrderActivity
-ADDED from C:\Users\my pc\Documents\GitHub\tea-coffee\TeaCoffee\app\src\main\AndroidManifest.xml:18:9-50
+ADDED from C:\Users\my pc\Documents\GitHub\tea-coffee\TeaCoffee\app\src\main\AndroidManifest.xml:18:9-51
 	android:name
 		ADDED from C:\Users\my pc\Documents\GitHub\tea-coffee\TeaCoffee\app\src\main\AndroidManifest.xml:18:19-48
+activity#com.example.teacoffee.UserHomeActivity
+ADDED from C:\Users\my pc\Documents\GitHub\tea-coffee\TeaCoffee\app\src\main\AndroidManifest.xml:19:9-54
+	android:name
+		ADDED from C:\Users\my pc\Documents\GitHub\tea-coffee\TeaCoffee\app\src\main\AndroidManifest.xml:19:19-51
+activity#com.example.teacoffee.UserActivity
+ADDED from C:\Users\my pc\Documents\GitHub\tea-coffee\TeaCoffee\app\src\main\AndroidManifest.xml:20:9-50
+	android:name
+		ADDED from C:\Users\my pc\Documents\GitHub\tea-coffee\TeaCoffee\app\src\main\AndroidManifest.xml:20:19-47
+activity#com.example.teacoffee.AdminHomeActivity
+ADDED from C:\Users\my pc\Documents\GitHub\tea-coffee\TeaCoffee\app\src\main\AndroidManifest.xml:21:9-55
+	android:name
+		ADDED from C:\Users\my pc\Documents\GitHub\tea-coffee\TeaCoffee\app\src\main\AndroidManifest.xml:21:19-52
+activity#com.example.teacoffee.AdminActivity
+ADDED from C:\Users\my pc\Documents\GitHub\tea-coffee\TeaCoffee\app\src\main\AndroidManifest.xml:22:9-51
+	android:name
+		ADDED from C:\Users\my pc\Documents\GitHub\tea-coffee\TeaCoffee\app\src\main\AndroidManifest.xml:22:19-48
 activity#com.example.teacoffee.MainActivity
-ADDED from C:\Users\my pc\Documents\GitHub\tea-coffee\TeaCoffee\app\src\main\AndroidManifest.xml:19:9-27:20
+ADDED from C:\Users\my pc\Documents\GitHub\tea-coffee\TeaCoffee\app\src\main\AndroidManifest.xml:23:9-31:20
 	android:exported
-		ADDED from C:\Users\my pc\Documents\GitHub\tea-coffee\TeaCoffee\app\src\main\AndroidManifest.xml:21:13-36
+		ADDED from C:\Users\my pc\Documents\GitHub\tea-coffee\TeaCoffee\app\src\main\AndroidManifest.xml:25:13-36
 	android:name
-		ADDED from C:\Users\my pc\Documents\GitHub\tea-coffee\TeaCoffee\app\src\main\AndroidManifest.xml:20:13-41
+		ADDED from C:\Users\my pc\Documents\GitHub\tea-coffee\TeaCoffee\app\src\main\AndroidManifest.xml:24:13-41
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\my pc\Documents\GitHub\tea-coffee\TeaCoffee\app\src\main\AndroidManifest.xml:22:13-26:29
+ADDED from C:\Users\my pc\Documents\GitHub\tea-coffee\TeaCoffee\app\src\main\AndroidManifest.xml:26:13-30:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\my pc\Documents\GitHub\tea-coffee\TeaCoffee\app\src\main\AndroidManifest.xml:23:17-69
+ADDED from C:\Users\my pc\Documents\GitHub\tea-coffee\TeaCoffee\app\src\main\AndroidManifest.xml:27:17-69
 	android:name
-		ADDED from C:\Users\my pc\Documents\GitHub\tea-coffee\TeaCoffee\app\src\main\AndroidManifest.xml:23:25-66
+		ADDED from C:\Users\my pc\Documents\GitHub\tea-coffee\TeaCoffee\app\src\main\AndroidManifest.xml:27:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\my pc\Documents\GitHub\tea-coffee\TeaCoffee\app\src\main\AndroidManifest.xml:25:17-77
+ADDED from C:\Users\my pc\Documents\GitHub\tea-coffee\TeaCoffee\app\src\main\AndroidManifest.xml:29:17-77
 	android:name
-		ADDED from C:\Users\my pc\Documents\GitHub\tea-coffee\TeaCoffee\app\src\main\AndroidManifest.xml:25:27-74
+		ADDED from C:\Users\my pc\Documents\GitHub\tea-coffee\TeaCoffee\app\src\main\AndroidManifest.xml:29:27-74
 uses-sdk
 INJECTED from C:\Users\my pc\Documents\GitHub\tea-coffee\TeaCoffee\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\my pc\Documents\GitHub\tea-coffee\TeaCoffee\app\src\main\AndroidManifest.xml
