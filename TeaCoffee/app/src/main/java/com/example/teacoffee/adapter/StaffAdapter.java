@@ -86,7 +86,7 @@ public class StaffAdapter extends RecyclerView.Adapter<StaffAdapter.VH> {
             tvRole = itemView.findViewById(R.id.tvRowRole);
 
             itemView.setOnClickListener(v -> {
-                int pos = getBindingAdapterPosition();
+                int pos = getAdapterPosition();
                 if (pos == RecyclerView.NO_POSITION) return;
 
                 int old = selected;
