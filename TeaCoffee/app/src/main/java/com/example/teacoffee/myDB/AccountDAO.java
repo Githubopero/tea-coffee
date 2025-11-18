@@ -28,7 +28,11 @@ public interface AccountDAO {
     List<Account> getByType(String type); // type: "ADMIN" | "STAFF"
     @Query("DELETE FROM Account WHERE User_Id = :id")
     int deleteById(int id);  // hoặc int nếu PK của bạn là int
-
+    @Query("SELECT COUNT(*) FROM Account WHERE User_Name = :username")
+    int countByUserName(String username);
+    // Đếm số tài khoản có username này nhưng KHÔNG phải tài khoản hiện tại
+    @Query("SELECT COUNT(*) FROM Account WHERE User_Name = :username AND User_Id != :id")
+    int countByUserNameExceptId(String username, int id);
 //    @Query("DELETE FROM Account WHERE User_Name = :username")
 //    int deleteByUsername(String username);
     @Insert void insert(Account a);

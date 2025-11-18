@@ -191,10 +191,20 @@ public class AdminHomeActivity extends AppCompatActivity {
         final String password    = safe(etPassword);
         final String typeRaw     = spType.getText() == null ? "" : spType.getText().toString().trim();
         final String type        = typeRaw.isEmpty() ? "STAFF" : typeRaw;
-
+        //  KIỂM TRA TÊN HIỂN THỊ
+        if (!isValidDisplayName(displayName)) {
+            toast("Tên hiển thị chỉ được chứa chữ, số và khoảng trắng, không được có ký tự đặc biệt");
+            return;
+        }
         if (mode == Mode.ADD) {
             if (userName.isEmpty() || password.isEmpty()) {
                 toast("Nhập Tên đăng nhập và Mật khẩu");
+                return;
+            }
+            //  KIỂM TRA TRÙNG USERNAME
+            int count = accountDAO.countByUserName(userName);
+            if (count > 0) {
+                toast("Tên đăng nhập đã tồn tại, vui lòng chọn tên khác");
                 return;
             }
             Account a = new Account();
@@ -231,7 +241,12 @@ public class AdminHomeActivity extends AppCompatActivity {
                 toast("Không tìm thấy: " + selected.User_Name);
                 return;
             }
-
+            // 🔴 KIỂM TRA: username này đã được tài khoản khác dùng chưa?
+            int conflict = accountDAO.countByUserNameExceptId(userName, exist.User_Id);
+            if (conflict > 0) {
+                toast("Tên đăng nhập đã tồn tại ở tài khoản khác, vui lòng chọn tên khác");
+                return;
+            }
             exist.Display_Name = displayName;
             exist.User_Name    = userName;
             exist.Password     = password;
@@ -248,7 +263,13 @@ public class AdminHomeActivity extends AppCompatActivity {
         }
         // Xóa xử lý trong showDeleteDialog()
     }
-
+    private boolean isValidDisplayName(String name) {
+        if (name == null) return true;          // hoặc return false nếu bạn bắt buộc phải nhập
+        name = name.trim();
+        if (name.isEmpty()) return true;        // cho phép bỏ trống
+        // Chỉ cho phép: chữ (mọi ngôn ngữ), số, và khoảng trắng
+        return name.matches("^[\\p{L}\\p{N} ]+$");
+    }
     private void showDeleteDialog(Account target) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setCancelable(true);
