@@ -58,6 +58,10 @@ public class AdminFoodManagement extends AppCompatActivity {
         setupListView();
 
         refreshFoodList(null);
+
+
+        // ✅ GỌI NavigationHelper để quản lý việc chuyển đổi Activity
+        NavigationHelper.setupAdminTabs(this, R.id.btnTabProduct);
     }
 
     private void initDB() {

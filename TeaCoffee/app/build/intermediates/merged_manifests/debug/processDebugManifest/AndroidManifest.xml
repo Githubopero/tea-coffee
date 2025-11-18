@@ -28,13 +28,19 @@
         android:testOnly="true"
         android:theme="@style/Theme.TeaCoffee" >
         <activity android:name="com.example.teacoffee.AdminActivity" />
-        <activity android:name="com.example.teacoffee.AdminHomeActivity" />
-        <activity android:name="com.example.teacoffee.AdminCategoryActivity" />
+        <activity
+            android:name="com.example.teacoffee.AdminHomeActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.example.teacoffee.AdminCategoryActivity"
+            android:exported="false" />
         <activity android:name="com.example.teacoffee.UserActivity" />
         <activity android:name="com.example.teacoffee.UserHomeActivity" />
         <activity android:name="com.example.teacoffee.OrderActivity" />
         <activity android:name="com.example.teacoffee.PaymentActivity" />
-        <activity android:name="com.example.teacoffee.AdminFoodManagement" />
+        <activity
+            android:name="com.example.teacoffee.AdminFoodManagement"
+            android:exported="false" />
         <activity
             android:name="com.example.teacoffee.ReportActivity"
             android:exported="false" />
