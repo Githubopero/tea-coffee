@@ -32,12 +32,12 @@ public class AdminHomeActivity extends AppCompatActivity {
     // form
     private TextView tvId;
     private TextInputEditText etDisplayName, etUserName, etPassword;
-    private MaterialAutoCompleteTextView spType; // "staff" / "admin"
+    private MaterialAutoCompleteTextView spType;
 
     // filter
-    private MaterialAutoCompleteTextView spAccountTypeFilter; // (Tất cả) / ADMIN / STAFF
+    private MaterialAutoCompleteTextView spAccountTypeFilter;
 
-    private MaterialButton btnConfirm, btnAddMode, btnEditMode, btnDeleteMode;
+    private MaterialButton btnConfirm, btnAddMode, btnEditMode, btnDeleteMode, btnCancel;
 
     private AccountDAO accountDAO;
 
@@ -67,26 +67,36 @@ public class AdminHomeActivity extends AppCompatActivity {
         spType                 = findViewById(R.id.spType);
         spAccountTypeFilter    = findViewById(R.id.spAccountTypeFilter);
         btnConfirm             = findViewById(R.id.btnConfirm);
+        btnCancel              = findViewById(R.id.btnCancel);      // <-- thêm
         btnAddMode             = findViewById(R.id.btnAddMode);
         btnEditMode            = findViewById(R.id.btnEditMode);
         btnDeleteMode          = findViewById(R.id.btnDeleteMode);
 
-        // ==== combobox Type trong form: mặc định "staff"
-        spType.setSimpleItems(new String[]{"staff", "admin"});
+        // ==== combobox Type trong form: mặc định "STAFF"
+        spType.setSimpleItems(new String[]{"STAFF", "ADMIN"});
         spType.setText("STAFF", false);
 
-        // ==== combobox Filter theo loại tài khoản
+        // ==== combobox Filter
         spAccountTypeFilter.setSimpleItems(new String[]{"(Tất cả)", "ADMIN", "STAFF"});
         spAccountTypeFilter.setText("(Tất cả)", false);
-        spAccountTypeFilter.setOnItemClickListener((parent, view, position, id) -> reloadList());
+        spAccountTypeFilter.setOnItemClickListener((parent, view, position, id) -> {
+            adapter.clearSelection();
+            showForm(false);                    // ẩn form nếu đang mở
+            btnCancel.setVisibility(View.GONE); // ẩn nút Hủy
+            reloadList();
+        });
 
         // ==== RecyclerView
         RecyclerView rv = findViewById(R.id.rvStaff);
         adapter = new StaffAdapter((acc, pos) -> {
-            if (mode != null && mode == Mode.EDIT) {
+            if (mode == Mode.EDIT) {
                 showForm(true);
                 fillForm(acc);
                 btnConfirm.setText("Xác nhận sửa");
+                btnCancel.setVisibility(View.VISIBLE); // có form thì hiện Hủy
+            } else if (mode == Mode.DELETE) {
+                // nếu bạn muốn xóa khi bấm vào item ở chế độ xóa
+                showDeleteDialog(acc);
             }
         });
         rv.setLayoutManager(new LinearLayoutManager(this));
@@ -94,12 +104,31 @@ public class AdminHomeActivity extends AppCompatActivity {
         reloadList();
 
         // ==== Mode buttons
-        btnAddMode.setOnClickListener(v -> setMode(Mode.ADD));
-        btnEditMode.setOnClickListener(v -> setMode(Mode.EDIT));
-        btnDeleteMode.setOnClickListener(v -> setMode(Mode.DELETE));
+        btnAddMode.setOnClickListener(v -> {
+            adapter.clearSelection();
+            setMode(Mode.ADD);
+        });
+        btnEditMode.setOnClickListener(v -> {
+            adapter.clearSelection();
+            setMode(Mode.EDIT);
+        });
+        btnDeleteMode.setOnClickListener(v -> {
+            adapter.clearSelection(); // tránh dùng selection từ chế độ khác
+            setMode(Mode.DELETE);
+        });
 
-        showForm(false); // mặc định xem danh sách
+        // Xác nhận
         btnConfirm.setOnClickListener(v -> onConfirm());
+
+        // HỦY: ẩn form, clear, bỏ chọn, về danh sách
+        btnCancel.setOnClickListener(v -> {
+            clearInputs();
+            showForm(false);
+            adapter.clearSelection();
+            setMode(Mode.EDIT); // về màn danh sách
+        });
+
+        showForm(false);
     }
 
     private void showForm(boolean show) {
@@ -114,20 +143,20 @@ public class AdminHomeActivity extends AppCompatActivity {
                 tvId.setText("ID: (auto)");
                 clearInputs();
                 showForm(true);
+                btnCancel.setVisibility(View.VISIBLE); // có form -> có HỦY
                 break;
+
             case EDIT:
                 btnConfirm.setText("Xác nhận sửa");
-                showForm(false);
+                showForm(false);                // chỉ mở form khi chọn item
+                btnCancel.setVisibility(View.GONE);
                 break;
+
             case DELETE:
                 btnConfirm.setText("Xác nhận xóa");
-                showForm(false);
-                Account target = adapter.getSelected();
-                if (target == null) {
-                    toast("Hãy chọn 1 tài khoản để xóa");
-                } else {
-                    showDeleteDialog(target);
-                }
+                showForm(false);                // xóa không dùng form
+                btnCancel.setVisibility(View.GONE);
+                toast("Hãy chọn 1 tài khoản để xóa");
                 break;
         }
         updateModeButtons();
@@ -137,10 +166,9 @@ public class AdminHomeActivity extends AppCompatActivity {
         etDisplayName.setText(null);
         etUserName.setText(null);
         etPassword.setText(null);
-        spType.setText("staff", false); // giữ mặc định staff khi reset
+        spType.setText("STAFF", false);
     }
 
-    /** Đọc lựa chọn filter và nạp danh sách phù hợp */
     private void reloadList() {
         String sel = spAccountTypeFilter.getText() == null ? "" :
                 spAccountTypeFilter.getText().toString().trim();
@@ -160,7 +188,7 @@ public class AdminHomeActivity extends AppCompatActivity {
         etDisplayName.setText(a.Display_Name);
         etUserName.setText(a.User_Name);
         etPassword.setText(a.Password);
-        spType.setText(a.Type == null ? "staff" : a.Type, false); // fallback staff
+        spType.setText(a.Type == null ? "STAFF" : a.Type, false);
     }
 
     private void onConfirm() {
@@ -168,23 +196,37 @@ public class AdminHomeActivity extends AppCompatActivity {
         final String userName    = safe(etUserName);
         final String password    = safe(etPassword);
         final String typeRaw     = spType.getText() == null ? "" : spType.getText().toString().trim();
-        final String type        = typeRaw.isEmpty() ? "staff" : typeRaw; // fallback staff
-
+        final String type        = typeRaw.isEmpty() ? "STAFF" : typeRaw;
+        //  KIỂM TRA TÊN HIỂN THỊ
+        if (!isValidDisplayName(displayName)) {
+            toast("Tên hiển thị chỉ được chứa chữ, số và khoảng trắng, không được có ký tự đặc biệt");
+            return;
+        }
         if (mode == Mode.ADD) {
             if (userName.isEmpty() || password.isEmpty()) {
                 toast("Nhập Tên đăng nhập và Mật khẩu");
+                return;
+            }
+            //  KIỂM TRA TRÙNG USERNAME
+            int count = accountDAO.countByUserName(userName);
+            if (count > 0) {
+                toast("Tên đăng nhập đã tồn tại, vui lòng chọn tên khác");
                 return;
             }
             Account a = new Account();
             a.Display_Name = displayName;
             a.User_Name    = userName;
             a.Password     = password;
-            a.Type         = type;      // staff mặc định
+            a.Type         = type;
+
             accountDAO.insert(a);
             toast("Đã thêm tài khoản");
+
+            // quay về danh sách
             clearInputs();
-            reloadList();
             showForm(false);
+            adapter.clearSelection();
+            reloadList();
             setMode(Mode.EDIT);
             return;
         }
@@ -205,17 +247,35 @@ public class AdminHomeActivity extends AppCompatActivity {
                 toast("Không tìm thấy: " + selected.User_Name);
                 return;
             }
-
+            // 🔴 KIỂM TRA: username này đã được tài khoản khác dùng chưa?
+            int conflict = accountDAO.countByUserNameExceptId(userName, exist.User_Id);
+            if (conflict > 0) {
+                toast("Tên đăng nhập đã tồn tại ở tài khoản khác, vui lòng chọn tên khác");
+                return;
+            }
             exist.Display_Name = displayName;
             exist.User_Name    = userName;
             exist.Password     = password;
             exist.Type         = type;
             accountDAO.update(exist);
             toast("Đã cập nhật");
-            reloadList();
-        }
-    }
 
+            // quay về danh sách
+            clearInputs();
+            showForm(false);
+            adapter.clearSelection();
+            reloadList();
+            setMode(Mode.EDIT);
+        }
+        // Xóa xử lý trong showDeleteDialog()
+    }
+    private boolean isValidDisplayName(String name) {
+        if (name == null) return true;          // hoặc return false nếu bạn bắt buộc phải nhập
+        name = name.trim();
+        if (name.isEmpty()) return true;        // cho phép bỏ trống
+        // Chỉ cho phép: chữ (mọi ngôn ngữ), số, và khoảng trắng
+        return name.matches("^[\\p{L}\\p{N} ]+$");
+    }
     private void showDeleteDialog(Account target) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setCancelable(true);
@@ -227,14 +287,29 @@ public class AdminHomeActivity extends AppCompatActivity {
         MaterialButton btnNo  = view.findViewById(R.id.btnNo);
 
         tvMessage.setText("Bạn có chắc muốn xóa tài khoản ID: " + target.User_Id + " ?");
-        AlertDialog dialog = builder.create();
 
+        AlertDialog dialog = builder.create();
         btnYes.setOnClickListener(v -> {
-            accountDAO.deleteByUsername(target.User_Name);
-            toast("Đã xóa ID " + target.User_Id);
+            int rows = accountDAO.deleteById(target.User_Id);
+            toast(rows > 0 ? "Đã xóa " + target.User_Name : "Không tìm thấy tài khoản để xóa");
+
+            adapter.clearSelection();
             reloadList();
             dialog.dismiss();
+            setMode(Mode.EDIT);
         });
+
+//        btnYes.setOnClickListener(v -> {
+//            accountDAO.deleteByUsername(target.User_Name);
+//            toast("Đã xóa " + target.User_Name);
+//
+//            // quay về danh sách
+//            adapter.clearSelection();
+//            reloadList();
+//            dialog.dismiss();
+//            setMode(Mode.EDIT);
+//        });
+
         btnNo.setOnClickListener(v -> dialog.dismiss());
         dialog.show();
     }
@@ -247,5 +322,5 @@ public class AdminHomeActivity extends AppCompatActivity {
         Toast.makeText(this, m, Toast.LENGTH_SHORT).show();
     }
 
-    private void updateModeButtons() { /* highlight theo mode nếu muốn */ }
+    private void updateModeButtons() { /* optional: highlight theo mode */ }
 }
