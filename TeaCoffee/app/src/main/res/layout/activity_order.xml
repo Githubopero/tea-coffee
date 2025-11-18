@@ -139,15 +139,33 @@
             android:textStyle="bold"
             tools:ignore="HardcodedText"/>
 
-        <Button
-            android:id="@+id/btnSave"
-            android:text="Lưu"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="8dp"
-            android:backgroundTint="#1976D2"
-            android:textColor="@android:color/white"
-            tools:ignore="HardcodedText"/>
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp">
+
+            <Button
+                android:id="@+id/btnCancel"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:text="Hủy"
+                android:backgroundTint="#E0E0E0"
+                android:textColor="#333"
+                tools:ignore="HardcodedText" />
+
+            <Button
+                android:id="@+id/btnSave"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:text="Lưu"
+                android:backgroundTint="#1976D2"
+                android:textColor="@android:color/white"
+                tools:ignore="HardcodedText" />
+        </LinearLayout>
     </LinearLayout>
 
 </LinearLayout>

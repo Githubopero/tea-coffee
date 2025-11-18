@@ -8,8 +8,11 @@ import android.widget.GridLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.teacoffee.myDB.Bill;
+import com.example.teacoffee.myDB.BillInfor;
 import com.example.teacoffee.myDB.MyDatabase;
 import com.example.teacoffee.myDB.TableEntity;
 
@@ -156,38 +159,59 @@ public class UserHomeActivity extends AppCompatActivity {
 
     private void bindTableCell(TextView tv, TableEntity t) {
         tv.setOnClickListener(v -> {
-            selectedTableId = t.Table_Id;     // luôn chọn bàn, kể cả đỏ
+            selectedTableId = t.Table_Id;
             refreshSelection();
+
             if (t.Status == 1) {
-                Toast.makeText(this, "Bàn đang bận – bấm nút Thanh toán hoặc nhấn giữ để mở menu", Toast.LENGTH_SHORT).show();
+                // bàn đỏ: hiện menu gồm Sửa / Thanh toán / Hủy đặt bàn
+                showBusyTableMenu(v, t);
             } else {
                 Toast.makeText(this, "Đã chọn " + t.Table_Name, Toast.LENGTH_SHORT).show();
             }
         });
 
-        // NHẤN GIỮ: menu sửa/thanh toán – chỉ cho bàn bận
+        // Nhấn giữ bàn bận cũng mở cùng menu
         tv.setOnLongClickListener(v -> {
             if (t.Status != 1) return true;
-            androidx.appcompat.widget.PopupMenu pop = new androidx.appcompat.widget.PopupMenu(this, v);
-            pop.getMenu().add(0, 1, 0, "Sửa thông tin bill");
-            pop.getMenu().add(0, 2, 1, "Thanh toán");
-            pop.setOnMenuItemClickListener(mi -> {
-                if (mi.getItemId() == 1) {
-                    Intent i = new Intent(this, OrderActivity.class);
-                    i.putExtra("tableId", t.Table_Id);
-                    startActivity(i);
-                    return true;
-                } else if (mi.getItemId() == 2) {
-                    startPayment(t.Table_Id);
-                    return true;
-                }
-                return false;
-            });
-            pop.show();
+            showBusyTableMenu(v, t);
             return true;
         });
     }
 
+
+    private void showBusyTableMenu(View anchor, TableEntity t) {
+        androidx.appcompat.widget.PopupMenu pop =
+                new androidx.appcompat.widget.PopupMenu(this, anchor);
+
+        pop.getMenu().add(0, 1, 0, "Sửa thông tin bill");
+        pop.getMenu().add(0, 2, 1, "Thanh toán");
+        pop.getMenu().add(0, 3, 2, "Hủy đặt bàn");
+
+        pop.setOnMenuItemClickListener(mi -> {
+            int id = mi.getItemId();
+            if (id == 1) {
+                Intent i = new Intent(this, OrderActivity.class);
+                i.putExtra("tableId", t.Table_Id);
+                startActivity(i);
+                return true;
+            } else if (id == 2) {
+                startPayment(t.Table_Id);
+                return true;
+            } else if (id == 3) {
+                // xác nhận trước khi hủy
+                new AlertDialog.Builder(this)
+                        .setTitle("Hủy đặt bàn")
+                        .setMessage("Bạn có chắc muốn hủy đặt bàn "
+                                + (t.Table_Name == null ? t.Table_Id : t.Table_Name) + " không?")
+                        .setPositiveButton("Hủy bàn", (d, w) -> cancelReservation(t))
+                        .setNegativeButton("Không", null)
+                        .show();
+                return true;
+            }
+            return false;
+        });
+        pop.show();
+    }
 
     private void startPayment(int tableId) {
         Intent i = new Intent(this, PaymentActivity.class);
@@ -203,4 +227,30 @@ public class UserHomeActivity extends AppCompatActivity {
         TableEntity t = (id == null) ? null : findTable(id);
         return t != null && t.Status == 1;
     }
+    private void cancelReservation(TableEntity t) {
+        var db = MyDatabase.getINSTANCE(this);
+
+        // tìm bill đang mở của bàn
+        Bill open = db.getBillDAO().getOpenByTable(t.Table_Id, "0");
+        if (open != null) {
+            // xóa toàn bộ chi tiết bill
+            List<BillInfor> lines = db.getBillInforDAO().getByBillId(open.Bill_Id);
+            for (BillInfor bi : lines ) {
+                db.getBillInforDAO().delete(bi);
+            }
+            // xóa bill
+            db.getBillDAO().delete(open);
+        }
+
+        // chuyển bàn về trạng thái trống
+        db.getTableDAO().updateStatus(0, t.Table_Id);
+
+        Toast.makeText(this,
+                "Đã hủy đặt bàn " + (t.Table_Name == null ? t.Table_Id : t.Table_Name),
+                Toast.LENGTH_SHORT).show();
+
+        // vẽ lại lưới bàn
+        loadTables();
+    }
+
 }
