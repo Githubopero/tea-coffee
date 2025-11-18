@@ -92,6 +92,9 @@ public class AdminCategoryActivity extends AppCompatActivity { // Sửa tên cla
 
         showForm(false); // mặc định xem danh sách
         btnConfirm.setOnClickListener(v -> onConfirm());
+
+        // ✅ GỌI NavigationHelper để quản lý việc chuyển đổi Activity
+        NavigationHelper.setupAdminTabs(this, R.id.btnTabCategory);
     }
 
     private void showForm(boolean show) {

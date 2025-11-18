@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/user_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="12dp"
+    android:background="#FFF5E5">
+
+    <!-- HEADER -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/tvBrand"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="The TeaCoffee"
+            android:textStyle="italic"
+            android:textSize="28sp"
+            android:textColor="#2E7D32"
+            android:fontFamily="cursive"
+            tools:ignore="HardcodedText" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:src="@drawable/ic_menu_24"
+            app:tint="#4E4E4E" />
+    </LinearLayout>
+
+    <!-- TOP TABS -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <!-- Đặt bàn (active) -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="44dp"
+            android:layout_weight="1"
+            android:layout_marginEnd="6dp"
+            android:gravity="center"
+            android:background="@drawable/bg_chip_active"
+            android:paddingHorizontal="16dp">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_reserve"
+                app:tint="@android:color/white" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:text="Đặt bàn"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                tools:ignore="HardcodedText" />
+        </LinearLayout>
+
+        <!-- Order (inactive) -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="44dp"
+            android:layout_weight="1"
+            android:layout_marginHorizontal="3dp"
+            android:gravity="center"
+            android:background="@drawable/bg_chip_inactive"
+            android:paddingHorizontal="16dp">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_order"
+                app:tint="#4E4E4E" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:text="Order"
+                android:textColor="#4E4E4E"
+                tools:ignore="HardcodedText" />
+        </LinearLayout>
+
+        <!-- Thanh toán (inactive) -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="44dp"
+            android:layout_weight="1"
+            android:layout_marginStart="6dp"
+            android:gravity="center"
+            android:background="@drawable/bg_chip_inactive"
+            android:paddingHorizontal="16dp">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_payment"
+                app:tint="#4E4E4E" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:text="Thanh toán"
+                android:textColor="#4E4E4E"
+                tools:ignore="HardcodedText" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- GRID BÀN -->
+    <GridLayout
+        android:id="@+id/gridTables"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="16dp"
+        android:columnCount="4"
+        android:rowCount="5"
+        android:alignmentMode="alignMargins"
+        android:useDefaultMargins="true"
+        android:paddingHorizontal="4dp"
+        android:paddingTop="4dp">
+
+        <!-- Các bàn sẽ được add động trong code,
+             nên phần mẫu có thể bỏ bớt cho gọn preview -->
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="58dp"
+            android:layout_columnWeight="1"
+            android:gravity="center"
+            android:text="1"
+            android:textColor="#2E7D32"
+            android:textSize="16sp"
+            android:background="@drawable/bg_table_free"
+            tools:ignore="HardcodedText" />
+    </GridLayout>
+
+    <!-- THANH TÁC VỤ -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="4dp">
+
+        <Button
+            android:id="@+id/btnMerge"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:layout_marginEnd="6dp"
+            android:text="Gộp bàn"
+            android:textAllCaps="false"
+            android:backgroundTint="#F6EEDD"
+            android:textColor="#2E7D32"
+            tools:ignore="HardcodedText" />
+
+        <Button
+            android:id="@+id/btnPay"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:layout_marginHorizontal="6dp"
+            android:text="Thanh toán"
+            android:textAllCaps="false"
+            android:textColor="#E04A34"
+            android:backgroundTint="#FFE3DD"
+            android:minWidth="0dp"
+            android:includeFontPadding="false"
+            android:paddingHorizontal="12dp"
+            tools:ignore="HardcodedText" />
+
+
+        <Button
+            android:id="@+id/btnReserve"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:layout_marginStart="6dp"
+            android:text="Đặt bàn"
+            android:textAllCaps="false"
+            android:backgroundTint="#24A946"
+            android:textColor="@android:color/white"
+            tools:ignore="HardcodedText" />
+    </LinearLayout>
+
+    <!-- BOTTOM NAV -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:background="#FFEED8"
+        android:elevation="8dp">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="0dp"
+            android:layout_height="28dp"
+            android:layout_weight="1"
+            android:src="@drawable/ic_home_24"
+            android:scaleType="center"
+            app:tint="#2E7D32" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="0dp"
+            android:layout_height="28dp"
+            android:layout_weight="1"
+            android:src="@drawable/ic_people_24"
+            android:scaleType="center"
+            app:tint="#C3B08B" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="0dp"
+            android:layout_height="28dp"
+            android:layout_weight="1"
+            android:src="@drawable/ic_calendar_24"
+            android:scaleType="center"
+            app:tint="#C3B08B" />
+    </LinearLayout>
+
+</LinearLayout>

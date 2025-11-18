@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="12dp"
+    tools:context=".ReportActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/tvBrand"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="The TeaCoffee"
+            android:textStyle="italic"
+            android:textSize="28sp"
+            android:textColor="#2E7D32"
+            android:fontFamily="cursive" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:src="@drawable/ic_menu_24"
+            app:tint="#4E4E4E" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="60dp"
+        android:layout_marginBottom="60dp"
+        android:padding="12dp"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.google.android.material.button.MaterialButtonToggleGroup
+                android:id="@+id/tabsGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:singleSelection="true"
+                app:selectionRequired="true"
+                android:layout_marginBottom="12dp">
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnTabProduct"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Sản phẩm"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnTabCategory"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Danh Mục"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnTabStats"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Thống kê"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnTabStaff"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Nhân viên"/>
+            </com.google.android.material.button.MaterialButtonToggleGroup>
+
+            <LinearLayout
+                android:id="@+id/productContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone"
+                android:paddingBottom="16dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Nội dung quản lý Sản phẩm và Danh mục"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/statsContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingTop="16dp"
+                    android:gravity="center_vertical">
+
+                    <Button
+                        android:id="@+id/btnStartDate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Từ:"/>
+
+                    <TextView
+                        android:id="@+id/tvStartDate"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="dd/MM/yyyy"
+                        android:textColor="#000000"
+                        android:gravity="center"
+                        android:layout_weight="5"/>
+                    <Button
+                        android:id="@+id/btnEndDate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Đến:"/>
+
+                    <TextView
+                        android:id="@+id/tvEndDate"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="dd/MM/yyyy"
+                        android:textColor="#000000"
+                        android:gravity="center"
+                        android:layout_weight="5"/>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvTotalRevenue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Tổng Doanh Thu: 0 VNĐ"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="#2E7D32"
+                    android:gravity="end"
+                    android:paddingVertical="8dp" />
+<!--                <com.example.teacoffee.CustomBarChart-->
+<!--                    android:id="@+id/revenueChart"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="300dp"-->
+<!--                    android:layout_marginTop="16dp" />-->
+                <TextView
+                    android:id="@+id/tvNoDataMessage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="❌ Không có dữ liệu doanh thu trong khoảng thời gian này."
+                    android:textSize="16sp"
+                    android:textStyle="italic"
+                    android:gravity="center"
+                    android:paddingVertical="16dp"
+                    android:textColor="#F44336"
+                    android:visibility="gone" />
+
+                <LinearLayout
+                    android:id="@+id/billHeader"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:orientation="horizontal"
+                    android:background="#E0E0E0"
+                    android:layout_marginTop="8dp"
+                    android:weightSum="8">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:text="ID"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:layout_height="wrap_content"
+                        />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="2"
+                        android:text="Ngày vào"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:layout_height="wrap_content"
+                        />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="2"
+                        android:text="Ngày ra"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:layout_height="wrap_content"
+                        />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="2"
+                        android:text="Tổng tiền"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:layout_height="wrap_content"
+                        />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:text="TT"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:layout_height="wrap_content"
+                        />
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvBills"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="false"
+                    tools:listitem="@layout/item_bill"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/staffContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone"
+                android:paddingBottom="16dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Nội dung quản lý Nhân viên"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:background="#FAFAFA"
+        android:layout_gravity="bottom"
+        android:elevation="8dp">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:src="@drawable/ic_home_24"
+            app:tint="#2E7D32"
+            android:layout_marginHorizontal="36dp" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:src="@drawable/ic_people_24"
+            app:tint="#9E9E9E"
+            android:layout_marginHorizontal="36dp" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:src="@drawable/ic_calendar_24"
+            app:tint="#9E9E9E"
+            android:layout_marginHorizontal="36dp" />
+    </LinearLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
