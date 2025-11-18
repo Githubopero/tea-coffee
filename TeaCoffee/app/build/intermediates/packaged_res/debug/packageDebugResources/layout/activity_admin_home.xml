@@ -65,12 +65,10 @@
                     android:text="Sản phẩm"/>
 
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnTabDanhMuc"
-                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                    android:layout_width="0dp"
+                    android:id="@+id/btnTabCategory" style="@style/Widget.MaterialComponents.Button.OutlinedButton"                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Danh Mục"/>
+                    android:text="Danh mục"/>
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnTabStats"
@@ -255,12 +253,30 @@
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <!-- Nút xác nhận -->
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/btnConfirm"
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Xác nhận"
-                        android:layout_marginTop="16dp"/>
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnConfirm"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Xác nhận"
+                            android:layout_marginTop="16dp"/>
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnCancel"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Hủy"
+                            android:layout_marginStart="12dp"
+                            android:layout_marginTop="16dp"/>
+                    </LinearLayout>
+
+
                 </LinearLayout>
             </FrameLayout>
         </LinearLayout>

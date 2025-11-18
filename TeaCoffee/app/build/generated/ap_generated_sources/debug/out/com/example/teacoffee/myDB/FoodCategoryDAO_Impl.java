@@ -129,6 +129,39 @@ public final class FoodCategoryDAO_Impl implements FoodCategoryDAO {
     });
   }
 
+  @Override
+  public FoodCategory findByName(final String name) {
+    final String _sql = "SELECT * FROM Food_Category WHERE Food_Category_Name = ? LIMIT 1";
+    return DBUtil.performBlocking(__db, true, false, (_connection) -> {
+      final SQLiteStatement _stmt = _connection.prepare(_sql);
+      try {
+        int _argIndex = 1;
+        if (name == null) {
+          _stmt.bindNull(_argIndex);
+        } else {
+          _stmt.bindText(_argIndex, name);
+        }
+        final int _columnIndexOfFoodCategoryId = SQLiteStatementUtil.getColumnIndexOrThrow(_stmt, "Food_Category_Id");
+        final int _columnIndexOfFoodCategoryName = SQLiteStatementUtil.getColumnIndexOrThrow(_stmt, "Food_Category_Name");
+        final FoodCategory _result;
+        if (_stmt.step()) {
+          _result = new FoodCategory();
+          _result.Food_Category_Id = (int) (_stmt.getLong(_columnIndexOfFoodCategoryId));
+          if (_stmt.isNull(_columnIndexOfFoodCategoryName)) {
+            _result.Food_Category_Name = null;
+          } else {
+            _result.Food_Category_Name = _stmt.getText(_columnIndexOfFoodCategoryName);
+          }
+        } else {
+          _result = null;
+        }
+        return _result;
+      } finally {
+        _stmt.close();
+      }
+    });
+  }
+
   @NonNull
   public static List<Class<?>> getRequiredConverters() {
     return Collections.emptyList();

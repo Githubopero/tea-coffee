@@ -13,7 +13,7 @@ public class NavigationHelper {
         MaterialButton tabStaff   = activity.findViewById(R.id.btnTabStaff);
         MaterialButton tabProduct = activity.findViewById(R.id.btnTabProduct);
         MaterialButton tabStats   = activity.findViewById(R.id.btnTabStats);
-        MaterialButton tabDanhMuc   = activity.findViewById(R.id.btnTabDanhMuc);
+        MaterialButton tabDanhMuc   = activity.findViewById(R.id.btnTabCategory);
 
         if (tabs == null) return;
         tabs.check(currentTabId);
@@ -28,15 +28,15 @@ public class NavigationHelper {
             });
         }
 
-//        if (tabProduct != null) {
-//            tabProduct.setOnClickListener(v -> {
-//                if (currentTabId != R.id.btnTabProduct) {
-//                    Intent i = new Intent(activity, ProductActivity.class);
-//                    activity.startActivity(i);
-//                    activity.finish();
-//                }
-//            });
-//        }
+        if (tabProduct != null) {
+            tabProduct.setOnClickListener(v -> {
+                if (currentTabId != R.id.btnTabProduct) {
+                    Intent i = new Intent(activity, AdminFoodManagement.class);
+                    activity.startActivity(i);
+                    activity.finish();
+                }
+            });
+        }
 
         if (tabStats != null) {
             tabStats.setOnClickListener(v -> {
@@ -47,14 +47,14 @@ public class NavigationHelper {
                 }
             });
         }
-//        if (tabStats != null) {
-//            tabStats.setOnClickListener(v -> {
-//                if (currentTabId != R.id.btnTabDanhMuc) {
-//                    Intent i = new Intent(activity, DanhMucActivity.class);
-//                    activity.startActivity(i);
-//                    activity.finish();
-//                }
-//            });
-//        }
+        if (tabStats != null) {
+            tabStats.setOnClickListener(v -> {
+                if (currentTabId != R.id.btnTabCategory) {
+                    Intent i = new Intent(activity, AdminCategoryActivity.class);
+                    activity.startActivity(i);
+                    activity.finish();
+                }
+            });
+        }
     }
 }

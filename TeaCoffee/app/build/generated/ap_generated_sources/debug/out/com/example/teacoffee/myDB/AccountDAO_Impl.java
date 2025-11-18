@@ -410,9 +410,9 @@ public final class AccountDAO_Impl implements AccountDAO {
   }
 
   @Override
-  public int deleteByUsername(final String username) {
-    final String _sql = "DELETE FROM Account WHERE User_Name = ?";
-    return DBUtil.performBlocking(__db, false, true, (_connection) -> {
+  public int countByUserName(final String username) {
+    final String _sql = "SELECT COUNT(*) FROM Account WHERE User_Name = ?";
+    return DBUtil.performBlocking(__db, true, false, (_connection) -> {
       final SQLiteStatement _stmt = _connection.prepare(_sql);
       try {
         int _argIndex = 1;
@@ -421,6 +421,54 @@ public final class AccountDAO_Impl implements AccountDAO {
         } else {
           _stmt.bindText(_argIndex, username);
         }
+        final int _result;
+        if (_stmt.step()) {
+          _result = (int) (_stmt.getLong(0));
+        } else {
+          _result = 0;
+        }
+        return _result;
+      } finally {
+        _stmt.close();
+      }
+    });
+  }
+
+  @Override
+  public int countByUserNameExceptId(final String username, final int id) {
+    final String _sql = "SELECT COUNT(*) FROM Account WHERE User_Name = ? AND User_Id != ?";
+    return DBUtil.performBlocking(__db, true, false, (_connection) -> {
+      final SQLiteStatement _stmt = _connection.prepare(_sql);
+      try {
+        int _argIndex = 1;
+        if (username == null) {
+          _stmt.bindNull(_argIndex);
+        } else {
+          _stmt.bindText(_argIndex, username);
+        }
+        _argIndex = 2;
+        _stmt.bindLong(_argIndex, id);
+        final int _result;
+        if (_stmt.step()) {
+          _result = (int) (_stmt.getLong(0));
+        } else {
+          _result = 0;
+        }
+        return _result;
+      } finally {
+        _stmt.close();
+      }
+    });
+  }
+
+  @Override
+  public int deleteById(final int id) {
+    final String _sql = "DELETE FROM Account WHERE User_Id = ?";
+    return DBUtil.performBlocking(__db, false, true, (_connection) -> {
+      final SQLiteStatement _stmt = _connection.prepare(_sql);
+      try {
+        int _argIndex = 1;
+        _stmt.bindLong(_argIndex, id);
         _stmt.step();
         return SQLiteConnectionUtil.getTotalChangedRows(_connection);
       } finally {

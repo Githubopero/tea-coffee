@@ -250,6 +250,70 @@ public final class FoodDAO_Impl implements FoodDAO {
     });
   }
 
+  @Override
+  public Food getByName(final String name) {
+    final String _sql = "SELECT * FROM Food WHERE Food_Name = ? LIMIT 1";
+    return DBUtil.performBlocking(__db, true, false, (_connection) -> {
+      final SQLiteStatement _stmt = _connection.prepare(_sql);
+      try {
+        int _argIndex = 1;
+        if (name == null) {
+          _stmt.bindNull(_argIndex);
+        } else {
+          _stmt.bindText(_argIndex, name);
+        }
+        final int _columnIndexOfFoodId = SQLiteStatementUtil.getColumnIndexOrThrow(_stmt, "Food_Id");
+        final int _columnIndexOfFoodName = SQLiteStatementUtil.getColumnIndexOrThrow(_stmt, "Food_Name");
+        final int _columnIndexOfFoodImage = SQLiteStatementUtil.getColumnIndexOrThrow(_stmt, "Food_Image");
+        final int _columnIndexOfPrice = SQLiteStatementUtil.getColumnIndexOrThrow(_stmt, "Price");
+        final int _columnIndexOfFoodCategoryId = SQLiteStatementUtil.getColumnIndexOrThrow(_stmt, "Food_Category_Id");
+        final Food _result;
+        if (_stmt.step()) {
+          _result = new Food();
+          _result.Food_Id = (int) (_stmt.getLong(_columnIndexOfFoodId));
+          if (_stmt.isNull(_columnIndexOfFoodName)) {
+            _result.Food_Name = null;
+          } else {
+            _result.Food_Name = _stmt.getText(_columnIndexOfFoodName);
+          }
+          if (_stmt.isNull(_columnIndexOfFoodImage)) {
+            _result.Food_Image = null;
+          } else {
+            _result.Food_Image = _stmt.getText(_columnIndexOfFoodImage);
+          }
+          _result.Price = (int) (_stmt.getLong(_columnIndexOfPrice));
+          _result.Food_Category_Id = (int) (_stmt.getLong(_columnIndexOfFoodCategoryId));
+        } else {
+          _result = null;
+        }
+        return _result;
+      } finally {
+        _stmt.close();
+      }
+    });
+  }
+
+  @Override
+  public int countFoodsByCategoryId(final int categoryId) {
+    final String _sql = "SELECT COUNT(*) FROM Food WHERE Food_Category_Id = ?";
+    return DBUtil.performBlocking(__db, true, false, (_connection) -> {
+      final SQLiteStatement _stmt = _connection.prepare(_sql);
+      try {
+        int _argIndex = 1;
+        _stmt.bindLong(_argIndex, categoryId);
+        final int _result;
+        if (_stmt.step()) {
+          _result = (int) (_stmt.getLong(0));
+        } else {
+          _result = 0;
+        }
+        return _result;
+      } finally {
+        _stmt.close();
+      }
+    });
+  }
+
   @NonNull
   public static List<Class<?>> getRequiredConverters() {
     return Collections.emptyList();

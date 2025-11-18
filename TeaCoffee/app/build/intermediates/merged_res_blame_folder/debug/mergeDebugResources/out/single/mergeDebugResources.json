@@ -1,230 +1,290 @@
 [
     {
-        "merged": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\mipmap-xhdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\mipmap-xhdpi\\ic_launcher.webp"
+        "merged": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\drawable_ic_qr_placeholder.jpg.flat",
+        "source": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\drawable\\ic_qr_placeholder.jpg"
     },
     {
-        "merged": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\drawable_ic_calendar_24.xml.flat",
-        "source": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\drawable\\ic_calendar_24.xml"
+        "merged": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\drawable_ic_launcher_foreground.xml.flat",
+        "source": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\drawable\\ic_launcher_foreground.xml"
     },
     {
-        "merged": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\drawable_ic_menu_24.xml.flat",
-        "source": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\drawable\\ic_menu_24.xml"
+        "merged": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\drawable_bg_payment_top_bar.xml.flat",
+        "source": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\drawable\\bg_payment_top_bar.xml"
     },
     {
-        "merged": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\layout_item_staff.xml.flat",
-        "source": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\layout\\item_staff.xml"
+        "merged": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\mipmap-mdpi\\ic_launcher.webp"
     },
     {
-        "merged": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\mipmap-mdpi_ic_launcher_round.webp.flat",
-        "source": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\mipmap-mdpi\\ic_launcher_round.webp"
+        "merged": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\layout_activity_admin_home.xml.flat",
+        "source": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\layout\\activity_admin_home.xml"
     },
     {
-        "merged": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\layout_activity_admin_home.xml.flat",
-        "source": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\layout\\activity_admin_home.xml"
+        "merged": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\drawable_ic_order.xml.flat",
+        "source": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\drawable\\ic_order.xml"
     },
     {
-        "merged": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\mipmap-xxxhdpi_ic_launcher_round.webp.flat",
-        "source": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\mipmap-xxxhdpi\\ic_launcher_round.webp"
+        "merged": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\drawable_item_bg.xml.flat",
+        "source": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\drawable\\item_bg.xml"
     },
     {
-        "merged": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\drawable_bg_qr_card.xml.flat",
-        "source": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\drawable\\bg_qr_card.xml"
+        "merged": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\drawable_ic_menu_24.xml.flat",
+        "source": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\drawable\\ic_menu_24.xml"
     },
     {
-        "merged": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\mipmap-mdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\mipmap-mdpi\\ic_launcher.webp"
+        "merged": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\drawable_bg_spinner.xml.flat",
+        "source": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\drawable\\bg_spinner.xml"
     },
     {
-        "merged": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\drawable_ic_baseline_lock_24.xml.flat",
-        "source": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\drawable\\ic_baseline_lock_24.xml"
+        "merged": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\drawable_bg_chip_inactive.xml.flat",
+        "source": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\drawable\\bg_chip_inactive.xml"
     },
     {
-        "merged": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\drawable_ic_qr_placeholder.jpg.flat",
-        "source": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\drawable\\ic_qr_placeholder.jpg"
+        "merged": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\drawable_bg_payment_btn_secondary.xml.flat",
+        "source": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\drawable\\bg_payment_btn_secondary.xml"
     },
     {
-        "merged": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\drawable_bg_chip_active.xml.flat",
-        "source": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\drawable\\bg_chip_active.xml"
+        "merged": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\drawable_ic_home_24.xml.flat",
+        "source": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\drawable\\ic_home_24.xml"
     },
     {
-        "merged": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\drawable_bg_spinner.xml.flat",
-        "source": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\drawable\\bg_spinner.xml"
+        "merged": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\mipmap-xhdpi\\ic_launcher.webp"
     },
     {
-        "merged": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\drawable_bg_btn_purple.xml.flat",
-        "source": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\drawable\\bg_btn_purple.xml"
+        "merged": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\drawable_bg_circle_icon.xml.flat",
+        "source": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\drawable\\bg_circle_icon.xml"
     },
     {
-        "merged": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\layout_activity_main.xml.flat",
-        "source": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\layout\\activity_main.xml"
+        "merged": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\drawable_bg_payment_summary.xml.flat",
+        "source": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\drawable\\bg_payment_summary.xml"
     },
     {
-        "merged": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\layout_activity_user_home.xml.flat",
-        "source": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\layout\\activity_user_home.xml"
+        "merged": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\drawable_ic_remove_24.xml.flat",
+        "source": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\drawable\\ic_remove_24.xml"
     },
     {
-        "merged": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\drawable_bg_circle_purple.xml.flat",
-        "source": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\drawable\\bg_circle_purple.xml"
+        "merged": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\layout_activity_main.xml.flat",
+        "source": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\layout\\activity_main.xml"
     },
     {
-        "merged": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\layout_activity_order.xml.flat",
-        "source": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\layout\\activity_order.xml"
+        "merged": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\drawable_ic_calendar_24.xml.flat",
+        "source": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\drawable\\ic_calendar_24.xml"
     },
     {
-        "merged": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\layout_dialog_qr_payment.xml.flat",
-        "source": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\layout\\dialog_qr_payment.xml"
+        "merged": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\drawable_loginbkg.xml.flat",
+        "source": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\drawable\\loginbkg.xml"
     },
     {
-        "merged": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\drawable_ic_reserve.xml.flat",
-        "source": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\drawable\\ic_reserve.xml"
+        "merged": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\drawable_bg_chip_pink.xml.flat",
+        "source": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\drawable\\bg_chip_pink.xml"
     },
     {
-        "merged": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\drawable_ic_order.xml.flat",
-        "source": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\drawable\\ic_order.xml"
+        "merged": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\xml_backup_rules.xml.flat",
+        "source": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\xml\\backup_rules.xml"
     },
     {
-        "merged": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\drawable_bg_table_busy.xml.flat",
-        "source": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\drawable\\bg_table_busy.xml"
+        "merged": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\layout_item_category.xml.flat",
+        "source": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\layout\\item_category.xml"
     },
     {
-        "merged": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\drawable_ic_remove_24.xml.flat",
-        "source": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\drawable\\ic_remove_24.xml"
+        "merged": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\drawable_ic_payment.xml.flat",
+        "source": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\drawable\\ic_payment.xml"
     },
     {
-        "merged": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\layout_dialog_confirm_delete.xml.flat",
-        "source": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\layout\\dialog_confirm_delete.xml"
+        "merged": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\mipmap-anydpi-v26\\ic_launcher.xml"
     },
     {
-        "merged": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\xml_backup_rules.xml.flat",
-        "source": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\xml\\backup_rules.xml"
+        "merged": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\layout_item_bill.xml.flat",
+        "source": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\layout\\item_bill.xml"
     },
     {
-        "merged": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\drawable_item_bg.xml.flat",
-        "source": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\drawable\\item_bg.xml"
+        "merged": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\layout_activity_order.xml.flat",
+        "source": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\layout\\activity_order.xml"
     },
     {
-        "merged": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\drawable_bg_table.xml.flat",
-        "source": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\drawable\\bg_table.xml"
+        "merged": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\drawable_ic_launcher_background.xml.flat",
+        "source": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\drawable\\ic_launcher_background.xml"
     },
     {
-        "merged": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\drawable_bg_chip_pink.xml.flat",
-        "source": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\drawable\\bg_chip_pink.xml"
+        "merged": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\layout_dialog_qr_payment.xml.flat",
+        "source": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\layout\\dialog_qr_payment.xml"
     },
     {
-        "merged": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\mipmap-xhdpi_ic_launcher_round.webp.flat",
-        "source": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\mipmap-xhdpi\\ic_launcher_round.webp"
+        "merged": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\mipmap-xxxhdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\layout_activity_report.xml.flat",
-        "source": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\layout\\activity_report.xml"
+        "merged": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\drawable_ic_reserve.xml.flat",
+        "source": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\drawable\\ic_reserve.xml"
     },
     {
-        "merged": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\drawable_ic_launcher_background.xml.flat",
-        "source": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\drawable\\ic_launcher_background.xml"
+        "merged": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\mipmap-xhdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\drawable_bg_table_free.xml.flat",
-        "source": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\drawable\\bg_table_free.xml"
+        "merged": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\layout_activity_user_home.xml.flat",
+        "source": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\layout\\activity_user_home.xml"
     },
     {
-        "merged": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\drawable_ic_baseline_person_24.xml.flat",
-        "source": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\drawable\\ic_baseline_person_24.xml"
+        "merged": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\drawable_bg_circle_purple.xml.flat",
+        "source": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\drawable\\bg_circle_purple.xml"
     },
     {
-        "merged": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\layout_item_bill.xml.flat",
-        "source": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\layout\\item_bill.xml"
+        "merged": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\xml_data_extraction_rules.xml.flat",
+        "source": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\xml\\data_extraction_rules.xml"
     },
     {
-        "merged": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\mipmap-hdpi_ic_launcher_round.webp.flat",
-        "source": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\mipmap-hdpi\\ic_launcher_round.webp"
+        "merged": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\layout_activity_admin_category.xml.flat",
+        "source": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\layout\\activity_admin_category.xml"
     },
     {
-        "merged": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\drawable_loginbkg.xml.flat",
-        "source": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\drawable\\loginbkg.xml"
+        "merged": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\mipmap-mdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\drawable_custom_edittext.xml.flat",
-        "source": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\drawable\\custom_edittext.xml"
+        "merged": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\drawable_bg_table.xml.flat",
+        "source": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\drawable\\bg_table.xml"
     },
     {
-        "merged": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\drawable_bg_qr_popup.xml.flat",
-        "source": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\drawable\\bg_qr_popup.xml"
+        "merged": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\drawable_bg_qty_right.xml.flat",
+        "source": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\drawable\\bg_qty_right.xml"
     },
     {
-        "merged": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\drawable_ic_home_24.xml.flat",
-        "source": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\drawable\\ic_home_24.xml"
+        "merged": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\drawable_ic_baseline_person_24.xml.flat",
+        "source": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\drawable\\ic_baseline_person_24.xml"
     },
     {
-        "merged": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\drawable_bg_chip_inactive.xml.flat",
-        "source": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\drawable\\bg_chip_inactive.xml"
+        "merged": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\drawable_bg_qr_popup.xml.flat",
+        "source": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\drawable\\bg_qr_popup.xml"
     },
     {
-        "merged": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\drawable_ic_payment.xml.flat",
-        "source": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\drawable\\ic_payment.xml"
+        "merged": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\mipmap-xxxhdpi\\ic_launcher.webp"
     },
     {
-        "merged": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\mipmap-hdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\mipmap-hdpi\\ic_launcher.webp"
+        "merged": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\layout_layout_top_tabs.xml.flat",
+        "source": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\layout\\layout_top_tabs.xml"
     },
     {
-        "merged": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\drawable_ic_people_24.xml.flat",
-        "source": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\drawable\\ic_people_24.xml"
+        "merged": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\layout_item_staff.xml.flat",
+        "source": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\layout\\item_staff.xml"
     },
     {
-        "merged": "com.example.teacoffee.app-debug-34:/layout_activity_report.xml.flat",
-        "source": "com.example.teacoffee.app-main-36:/layout/activity_report.xml"
+        "merged": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\drawable_ic_people_24.xml.flat",
+        "source": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\drawable\\ic_people_24.xml"
     },
     {
-        "merged": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\xml_data_extraction_rules.xml.flat",
-        "source": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\xml\\data_extraction_rules.xml"
+        "merged": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\drawable_bg_btn_purple.xml.flat",
+        "source": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\drawable\\bg_btn_purple.xml"
     },
     {
-        "merged": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\layout_item_order_row.xml.flat",
-        "source": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\layout\\item_order_row.xml"
+        "merged": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\layout_activity_payment.xml.flat",
+        "source": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\layout\\activity_payment.xml"
     },
     {
-        "merged": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\drawable_ic_launcher_foreground.xml.flat",
-        "source": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\drawable\\ic_launcher_foreground.xml"
+        "merged": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\layout_activity_food_management.xml.flat",
+        "source": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\layout\\activity_food_management.xml"
     },
     {
-        "merged": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\layout_layout_top_tabs.xml.flat",
-        "source": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\layout\\layout_top_tabs.xml"
+        "merged": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\drawable_bg_table_busy.xml.flat",
+        "source": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\drawable\\bg_table_busy.xml"
     },
     {
-        "merged": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\layout_activity_payment.xml.flat",
-        "source": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\layout\\activity_payment.xml"
+        "merged": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\drawable_bg_order_summary.xml.flat",
+        "source": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\drawable\\bg_order_summary.xml"
     },
     {
-        "merged": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\drawable_item_row_selector.xml.flat",
-        "source": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\drawable\\item_row_selector.xml"
+        "merged": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\mipmap-xxhdpi\\ic_launcher.webp"
     },
     {
-        "merged": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\mipmap-xxxhdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\mipmap-xxxhdpi\\ic_launcher.webp"
+        "merged": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\drawable_bg_table_selected.xml.flat",
+        "source": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\drawable\\bg_table_selected.xml"
     },
     {
-        "merged": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\drawable_bg_table_selected.xml.flat",
-        "source": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\drawable\\bg_table_selected.xml"
+        "merged": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\layout_dialog_confirm_delete.xml.flat",
+        "source": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\layout\\dialog_confirm_delete.xml"
     },
     {
-        "merged": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\mipmap-xxhdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\mipmap-xxhdpi\\ic_launcher.webp"
+        "merged": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\layout_activity_report.xml.flat",
+        "source": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\layout\\activity_report.xml"
     },
     {
-        "merged": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\mipmap-xxhdpi_ic_launcher_round.webp.flat",
-        "source": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\mipmap-xxhdpi\\ic_launcher_round.webp"
+        "merged": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\mipmap-anydpi-v26\\ic_launcher_round.xml"
     },
     {
-        "merged": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\drawable_ic_add_24.xml.flat",
-        "source": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\drawable\\ic_add_24.xml"
+        "merged": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\drawable_ic_baseline_lock_24.xml.flat",
+        "source": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\drawable\\ic_baseline_lock_24.xml"
     },
     {
-        "merged": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
-        "source": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+        "merged": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\drawable_bg_qty_middle.xml.flat",
+        "source": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\drawable\\bg_qty_middle.xml"
     },
     {
-        "merged": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
-        "source": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\mipmap-anydpi-v26\\ic_launcher.xml"
+        "merged": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\drawable_item_row_selector.xml.flat",
+        "source": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\drawable\\item_row_selector.xml"
+    },
+    {
+        "merged": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\drawable_bg_btn_cancel.xml.flat",
+        "source": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\drawable\\bg_btn_cancel.xml"
+    },
+    {
+        "merged": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\drawable_bg_btn_save.xml.flat",
+        "source": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\drawable\\bg_btn_save.xml"
+    },
+    {
+        "merged": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\drawable_ic_add_24.xml.flat",
+        "source": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\drawable\\ic_add_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\drawable_bg_qr_card.xml.flat",
+        "source": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\drawable\\bg_qr_card.xml"
+    },
+    {
+        "merged": "com.example.teacoffee.app-debug-34:/layout_activity_admin_category.xml.flat",
+        "source": "com.example.teacoffee.app-main-36:/layout/activity_admin_category.xml"
+    },
+    {
+        "merged": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\layout_item_payment_row.xml.flat",
+        "source": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\layout\\item_payment_row.xml"
+    },
+    {
+        "merged": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\layout_item_order_row.xml.flat",
+        "source": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\layout\\item_order_row.xml"
+    },
+    {
+        "merged": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\drawable_bg_qty_left.xml.flat",
+        "source": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\drawable\\bg_qty_left.xml"
+    },
+    {
+        "merged": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\mipmap-hdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\drawable_bg_chip_active.xml.flat",
+        "source": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\drawable\\bg_chip_active.xml"
+    },
+    {
+        "merged": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\mipmap-xxhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\drawable_bg_payment_btn_primary.xml.flat",
+        "source": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\drawable\\bg_payment_btn_primary.xml"
+    },
+    {
+        "merged": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\drawable_custom_edittext.xml.flat",
+        "source": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\drawable\\custom_edittext.xml"
+    },
+    {
+        "merged": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\drawable_bg_table_free.xml.flat",
+        "source": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\drawable\\bg_table_free.xml"
+    },
+    {
+        "merged": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\mipmap-hdpi\\ic_launcher_round.webp"
     }
 ]

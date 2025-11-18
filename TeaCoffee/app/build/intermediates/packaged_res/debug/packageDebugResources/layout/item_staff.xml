@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/itemRoot"
     android:layout_width="match_parent"
@@ -6,48 +5,55 @@
     android:orientation="vertical"
     android:padding="10dp"
     android:background="@drawable/item_row_selector"
-    android:foreground="?attr/selectableItemBackground"
     android:clickable="true"
     android:focusable="true">
 
+    <!-- Dòng 1: nvID | Tên hiển thị -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:weightSum="8"
         android:orientation="horizontal">
 
         <TextView
             android:id="@+id/tvRowId"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:gravity="start"
             android:text="nv01"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/tvRowUser"
+            android:id="@+id/tvRowDisplayName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:layout_weight="1"
-            android:text="hpt18" />
+            android:layout_weight="2"
+            android:gravity="start"
+            android:text="HươngPT" />
     </LinearLayout>
 
+    <!-- Dòng 2: Tên tài khoản | Chức vụ -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginTop="4dp">
 
         <TextView
-            android:id="@+id/tvRowDisplay"
+            android:id="@+id/tvRowUsername"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Hương P" />
+            android:gravity="start"
+            android:text="user2" />
 
         <TextView
-            android:id="@+id/tvRowNote"
-            android:layout_width="wrap_content"
+            android:id="@+id/tvRowRole"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Ca 1" />
+            android:layout_weight="1"
+            android:gravity="end"
+            android:text="ADMIN" />
     </LinearLayout>
 </LinearLayout>
