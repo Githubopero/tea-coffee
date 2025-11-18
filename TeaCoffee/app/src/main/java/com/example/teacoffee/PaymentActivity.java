@@ -100,8 +100,8 @@ public class PaymentActivity extends AppCompatActivity {
         int totalQty = 0;
         long subtotal = 0;
 
-        // header
-        addRow(inflater, "Tên món", "Đơn giá", "Số lượng", true);
+//        // header
+//        addRow(inflater, "Tên món", "Đơn giá", "Số lượng", true);
 
         for (BillInfor li : lines) {
             Food f = db.getFoodDAO().getById(li.Food_Id);
@@ -124,12 +124,21 @@ public class PaymentActivity extends AppCompatActivity {
     }
 
     private void addRow(LayoutInflater inflater, String c1, String c2, String c3, boolean header) {
-        TextView row = new TextView(this);
-        row.setText((header ? "" : "• ") + c1 + "   " + c2 + "   " + c3);
-        row.setTextSize(header ? 15f : 14f);
-        row.setPadding(8, header ? 12 : 6, 8, header ? 12 : 6);
+        // inflate layout 1 dòng
+        View row = inflater.inflate(R.layout.item_payment_row, listContainer, false);
+
+        TextView tvName  = row.findViewById(R.id.tvItemName);
+        TextView tvPrice = row.findViewById(R.id.tvItemPrice);
+        TextView tvQty   = row.findViewById(R.id.tvItemQty);
+
+        // thêm bullet cho tên món (header=false nên luôn có bullet)
+        tvName.setText("" + c1);
+        tvPrice.setText(c2);
+        tvQty.setText(c3);
+
         listContainer.addView(row);
     }
+
 
     private void confirmAndPay(String message) {
         new AlertDialog.Builder(this)

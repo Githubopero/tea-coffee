@@ -5,9 +5,9 @@
     android:padding="12dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white">
+    android:background="#FFF7EC">
 
-    <!-- Header -->
+    <!-- HEADER -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -20,121 +20,186 @@
             android:text="The TeaCoffee"
             android:textStyle="italic"
             android:textSize="26sp"
-            android:textColor="#2E7D32" />
+            android:textColor="#2E7D32"
+            android:fontFamily="cursive" />
 
         <ImageView
-            android:layout_width="28dp"
-            android:layout_height="28dp"
-            app:srcCompat="@android:drawable/ic_menu_more"
-            app:tint="#4E4E4E" />
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:padding="6dp"
+            android:background="@drawable/bg_circle_icon"
+            app:srcCompat="@android:drawable/arrow_down_float"
+            app:tint="#2E7D32" />
     </LinearLayout>
 
-    <!-- Tiêu đề + chip bàn -->
+    <!-- THANH "CHI TIẾT HÓA ĐƠN" + CHIP BÀN -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:paddingVertical="8dp"
-        android:background="#F9F9F9"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/bg_payment_top_bar"
+        android:paddingHorizontal="18dp"
+        android:paddingVertical="10dp"
         android:gravity="center_vertical">
 
         <TextView
             android:id="@+id/tvTitle"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="Chi tiết hóa đơn"
             android:textStyle="bold"
-            android:textSize="16sp" />
+            android:textSize="18sp"
+            android:textColor="#3D3D3D" />
 
         <TextView
             android:id="@+id/tvTable"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:paddingHorizontal="10dp"
-            android:paddingVertical="4dp"
-            android:text="Bàn số ?"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="6dp"
+            android:text="Bàn số 15"
             android:textStyle="bold"
+            android:textColor="#3D3D3D"
             android:background="@drawable/bg_chip_pink" />
     </LinearLayout>
 
-    <!-- Bảng món -->
+    <!-- KHU VỰC DANH SÁCH MÓN -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:layout_marginTop="8dp">
 
         <LinearLayout
-            android:id="@+id/listContainer"
-            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="8dp" />
+            android:orientation="vertical"
+            android:paddingHorizontal="4dp">
+
+            <!-- HÀNG HEADER: Tên món / Đơn giá / Số lượng -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="4dp"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:text="Tên món"
+                    android:textStyle="bold"
+                    android:textColor="#3D3D3D"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:text="Đơn giá"
+                    android:textStyle="bold"
+                    android:textColor="#3D3D3D"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="end"
+                    android:text="Số lượng"
+                    android:textStyle="bold"
+                    android:textColor="#3D3D3D"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <!-- DANH SÁCH MÓN ĐƯỢC THÊM BẰNG CODE -->
+            <LinearLayout
+                android:id="@+id/listContainer"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
     </ScrollView>
 
-    <!-- Tổng kết -->
+    <!-- TỔNG KẾT + NÚT THANH TOÁN -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="#F9F9F9"
-        android:padding="8dp">
+        android:layout_marginTop="4dp">
 
-        <TextView
-            android:id="@+id/tvTotalQty"
+        <!-- CARD TỔNG KẾT -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Tổng số lượng: 0" />
+            android:background="@drawable/bg_payment_summary"
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/tvSubtotal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Tiền hàng: 0đ" />
+            <TextView
+                android:id="@+id/tvTotalQty"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tổng số lượng: 0"
+                android:textColor="#3D3D3D" />
 
-        <TextView
-            android:id="@+id/tvDiscount"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Chiết khấu: 0%" />
+            <TextView
+                android:id="@+id/tvSubtotal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tiền hàng: 0 đ"
+                android:textColor="#3D3D3D" />
 
-        <TextView
-            android:id="@+id/tvGrand"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Tổng tiền thanh toán: 0đ"
-            android:textStyle="bold" />
+            <TextView
+                android:id="@+id/tvDiscount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Chiết khấu: 0% (0 đ)"
+                android:textColor="#3D3D3D" />
 
+            <TextView
+                android:id="@+id/tvGrand"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tổng tiền thanh toán: 0 đ"
+                android:textStyle="bold"
+                android:textColor="#3D3D3D" />
+        </LinearLayout>
+
+        <!-- NÚT TIỀN MẶT / CHUYỂN KHOẢN -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center"
-            android:layout_marginTop="8dp">
+            android:layout_marginTop="10dp">
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnCash"
                 android:layout_width="0dp"
-                android:layout_height="50dp"
+                android:layout_height="52dp"
                 android:layout_weight="1"
-                android:layout_marginEnd="6dp"
+                android:layout_marginEnd="8dp"
                 android:text="Tiền mặt"
-                android:backgroundTint="#1976D2"
-                android:textColor="@android:color/white" />
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                android:background="@drawable/bg_payment_btn_primary"
+                android:backgroundTint="@null"
+                app:backgroundTint="@null" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnTransfer"
                 android:layout_width="0dp"
-                android:layout_height="50dp"
+                android:layout_height="52dp"
                 android:layout_weight="1"
                 android:text="Chuyển khoản"
-                android:backgroundTint="#64B5F6"
-                android:textColor="@android:color/white" />
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                android:background="@drawable/bg_payment_btn_secondary"
+                android:backgroundTint="@null"
+                app:backgroundTint="@null" />
         </LinearLayout>
     </LinearLayout>
-
-
-
-
 
 </LinearLayout>
