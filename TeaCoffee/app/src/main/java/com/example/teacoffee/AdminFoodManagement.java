@@ -1,6 +1,7 @@
 package com.example.teacoffee;
 
 import android.os.Bundle;
+import android.text.InputFilter;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -94,10 +95,19 @@ public class AdminFoodManagement extends AppCompatActivity {
         ));
         ((android.widget.LinearLayout) foodFormContainer).addView(btnCloseForm);
 
+        etPrice.setFilters(new InputFilter[]{
+                (source, start, end, dest, dstart, dend) -> {
+                    // chỉ cho nhập số 0-9
+                    if (!source.toString().matches("[0-9]*")) {
+                        return "";
+                    }
+                    return null;
+                }
+        });
+
         btnCloseForm.setOnClickListener(v -> {
             clearForm();
             showForm(false);
-            modeGroup.clearChecked();
             mode = Mode.VIEW;
         });
     }
@@ -194,6 +204,16 @@ public class AdminFoodManagement extends AppCompatActivity {
             Toast.makeText(this, "Danh mục không hợp lệ!", Toast.LENGTH_SHORT).show();
             return;
         }
+        // Kiểm tra trùng tên (không phân biệt hoa thường)
+        Food existing = foodDAO.getByName(name);
+        if (existing != null) {
+            Toast.makeText(this, "Tên sản phẩm đã tồn tại!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (name.length() > 50) {
+            Toast.makeText(this, "Tên sản phẩm quá dài! (tối đa 50 ký tự)", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
         new android.app.AlertDialog.Builder(this)
                 .setTitle("Xác nhận thêm")
@@ -227,6 +247,18 @@ public class AdminFoodManagement extends AppCompatActivity {
             return;
         }
 
+        if (name.length() > 50) {
+            Toast.makeText(this, "Tên sản phẩm quá dài! (tối đa 50 ký tự)", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        // Kiểm tra trùng tên trừ chính nó
+        Food existing = foodDAO.getByName(name);
+        if (existing != null && existing.Food_Id != selectedFood.Food_Id) {
+            Toast.makeText(this, "Tên sản phẩm đã tồn tại!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         int categoryId = getCategoryIdByName(categoryName);
 
         new android.app.AlertDialog.Builder(this)
@@ -253,7 +285,7 @@ public class AdminFoodManagement extends AppCompatActivity {
         List<String> names = new ArrayList<>();
         for (Food f : foodList) {
             String categoryName = getCategoryNameById(f.Food_Category_Id);
-            names.add(f.Food_Name + " - " + f.Price + "đ (" + categoryName + ")");
+            names.add(f.Food_Id +"." + f.Food_Name + " - " + f.Price + "đ (" + categoryName + ")");
         }
 
         foodAdapter.clear();

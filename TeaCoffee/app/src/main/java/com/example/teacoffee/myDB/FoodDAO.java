@@ -18,7 +18,11 @@ public interface FoodDAO {
     int countAll();
     @Query("SELECT * FROM Food WHERE Food_Id = :id LIMIT 1")
     Food getById(int id);
+    @Query("SELECT * FROM Food WHERE Food_Name = :name LIMIT 1")
+    Food getByName(String name);
     @Insert void insert(Food f);
     @Update void update(Food f);
     @Delete void delete(Food f);
+
+
 }
