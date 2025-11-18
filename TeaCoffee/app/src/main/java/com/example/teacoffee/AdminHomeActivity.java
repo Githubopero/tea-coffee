@@ -133,15 +133,9 @@ public class AdminHomeActivity extends AppCompatActivity {
         // Xác nhận
         btnConfirm.setOnClickListener(v -> onConfirm());
 
-        // HỦY: ẩn form, clear, bỏ chọn, về danh sách
-        btnCancel.setOnClickListener(v -> {
-            clearInputs();
-            showForm(false);
-            adapter.clearSelection();
-            setMode(Mode.EDIT); // về màn danh sách
-        });
 
-        showForm(false);
+        // ✅ GỌI NavigationHelper để quản lý việc chuyển đổi Activity
+        NavigationHelper.setupAdminTabs(this, R.id.btnTabStaff);
     }
 
     private void showForm(boolean show) {
