@@ -11,6 +11,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.teacoffee.myDB.Bill;
@@ -30,7 +31,7 @@ public class OrderActivity extends AppCompatActivity {
     private Spinner spnTable;
     private LinearLayout catContainer, listContainer;
     private TextView tvTotalQty, tvSubtotal, tvDiscount, tvGrand;
-    private Button btnSave;
+    private Button btnSave, btnCancel;
     private int currentCatId = 0;
     private HashMap<Integer, Double> catDiscountRate = new HashMap<>(); // CategoryId -> rate
 
@@ -57,6 +58,8 @@ public class OrderActivity extends AppCompatActivity {
         tvDiscount    = findViewById(R.id.tvDiscount);
         tvGrand       = findViewById(R.id.tvGrandTotal);
         btnSave       = findViewById(R.id.btnSave);
+        btnCancel = findViewById(R.id.btnCancel);
+
 
         // nhận tableId
         selectedTableId = getIntent().getIntExtra("tableId", -1);
@@ -75,6 +78,19 @@ public class OrderActivity extends AppCompatActivity {
             buildCategoryChips(categories);
             loadFoodsByCategory(categories.get(0).Food_Category_Id);
         }
+        btnCancel.setOnClickListener(v -> {
+            new AlertDialog.Builder(this)
+                    .setTitle("Hủy hóa đơn")
+                    .setMessage("Bạn có chắc muốn hủy, không lưu hóa đơn cho bàn này?")
+                    .setPositiveButton("Hủy", (dialog, which) -> {
+                        // KHÔNG ghi gì xuống DB, bàn giữ nguyên như lúc mở màn hình
+                        Toast.makeText(this, "Đã hủy, không lưu hóa đơn", Toast.LENGTH_SHORT).show();
+                        finish();
+                    })
+                    .setNegativeButton("Không", null)
+                    .show();
+        });
+
 
         btnSave.setOnClickListener(v -> {
             if (selectedTableId <= 0) { Toast.makeText(this, "Thiếu bàn!", Toast.LENGTH_SHORT).show(); return; }
