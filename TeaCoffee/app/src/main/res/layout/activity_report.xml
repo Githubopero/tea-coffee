@@ -154,7 +154,11 @@
                     android:textColor="#2E7D32"
                     android:gravity="end"
                     android:paddingVertical="8dp" />
-
+<!--                <com.example.teacoffee.CustomBarChart-->
+<!--                    android:id="@+id/revenueChart"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="300dp"-->
+<!--                    android:layout_marginTop="16dp" />-->
                 <TextView
                     android:id="@+id/tvNoDataMessage"
                     android:layout_width="match_parent"
