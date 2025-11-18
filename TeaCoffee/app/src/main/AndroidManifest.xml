@@ -14,6 +14,7 @@
 
         <activity android:name=".AdminActivity"/>
         <activity android:name=".AdminHomeActivity"/>
+        <activity android:name=".AdminCategoryActivity" />
         <activity android:name=".UserActivity"/>
         <activity android:name=".UserHomeActivity"/>
         <activity android:name=".OrderActivity"/>
@@ -23,10 +24,9 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-    </application>
 
+    </application>
 </manifest>

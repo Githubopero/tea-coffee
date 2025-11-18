@@ -23,6 +23,6 @@ public interface FoodDAO {
     @Insert void insert(Food f);
     @Update void update(Food f);
     @Delete void delete(Food f);
-
-
+    @Query("SELECT COUNT(*) FROM Food WHERE Food_Category_Id = :categoryId")
+    int countFoodsByCategoryId(int categoryId);
 }
