@@ -1,7 +1,9 @@
 package com.example.teacoffee;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,6 +25,9 @@ import com.google.android.material.textfield.TextInputEditText;
 
 public class AdminHomeActivity extends AppCompatActivity {
 
+    //Khai báo dữ liệu nút sản phẩm
+    private Button btnSP;
+    //=================================//
     enum Mode { ADD, EDIT, DELETE }
     private Mode mode = null;
 
@@ -72,8 +77,16 @@ public class AdminHomeActivity extends AppCompatActivity {
         btnEditMode            = findViewById(R.id.btnEditMode);
         btnDeleteMode          = findViewById(R.id.btnDeleteMode);
 
-        // ==== combobox Type trong form: mặc định "STAFF"
-        spType.setSimpleItems(new String[]{"STAFF", "ADMIN"});
+        //Xử lý nút sản phẩm
+        btnSP = findViewById(R.id.btnTabProduct);
+        btnSP.setOnClickListener(v -> {
+            Intent intent = new Intent(AdminHomeActivity.this, AdminFoodManagement.class);
+            startActivity(intent);
+        });
+        //======================
+
+        // ==== combobox Type trong form: mặc định "staff"
+        spType.setSimpleItems(new String[]{"staff", "admin"});
         spType.setText("STAFF", false);
 
         // ==== combobox Filter
@@ -322,5 +335,5 @@ public class AdminHomeActivity extends AppCompatActivity {
         Toast.makeText(this, m, Toast.LENGTH_SHORT).show();
     }
 
-    private void updateModeButtons() { /* optional: highlight theo mode */ }
+    private void updateModeButtons() { /* highlight theo mode nếu muốn */ }
 }

@@ -6,9 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="12dp"
-    tools:context=".AdminHomeActivity">
+    tools:context=".AdminFoodManagement">
 
-    <!-- ======= THANH TRÊN: TÊN + MENU ======= -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -33,7 +32,6 @@
             app:tint="#4E4E4E" />
     </LinearLayout>
 
-    <!-- ======= PHẦN CHÍNH (SCROLLVIEW) ======= -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -47,7 +45,6 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <!-- Tabs -->
             <com.google.android.material.button.MaterialButtonToggleGroup
                 android:id="@+id/tabsGroup"
                 android:layout_width="match_parent"
@@ -63,12 +60,6 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Sản phẩm"/>
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnTabCategory" style="@style/Widget.MaterialComponents.Button.OutlinedButton"                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Danh mục"/>
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnTabStats"
@@ -87,7 +78,6 @@
                     android:text="Nhân viên"/>
             </com.google.android.material.button.MaterialButtonToggleGroup>
 
-            <!-- ======= BỘ LỌC LOẠI TÀI KHOẢN (nhỏ + không hint) ======= -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -98,32 +88,33 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Loại tài khoản:"
-                    android:textSize="16sp"
                     android:layout_marginEnd="12dp"
-                    />
+                    android:text="Danh mục "
+                    android:textSize="16sp" />
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/tilAccountTypeFilter"
+                    android:id="@+id/tilCategoryFilter"
                     android:layout_width="140dp"
                     android:layout_height="wrap_content"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                     app:endIconMode="dropdown_menu"
-                    app:hintEnabled="false">
+                    app:hintEnabled="true">
+<!--                    android:hint="Lọc theo Danh mục"-->
 
                     <com.google.android.material.textfield.MaterialAutoCompleteTextView
-                        android:id="@+id/spAccountTypeFilter"
+                        android:id="@+id/spCategoryFilter"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:singleLine="true"
                         android:ellipsize="end"
                         android:paddingHorizontal="8dp"
-                        android:inputType="none"/>
-
+                        android:inputType="none"
+                        android:hint="Chọn danh mục"
+                        android:contentDescription="Bộ lọc danh mục sản phẩm" />
                 </com.google.android.material.textfield.TextInputLayout>
+
             </LinearLayout>
 
-            <!-- 3 nút chế độ -->
             <com.google.android.material.button.MaterialButtonToggleGroup
                 android:id="@+id/modeGroup"
                 android:layout_width="match_parent"
@@ -133,7 +124,7 @@
                 android:layout_marginBottom="12dp">
 
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnAddMode"
+                    android:id="@+id/btnAddSP"
                     style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -143,7 +134,7 @@
                     android:layout_marginEnd="8dp"/>
 
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnEditMode"
+                    android:id="@+id/btnEditSP"
                     style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -153,7 +144,7 @@
                     android:layout_marginEnd="8dp"/>
 
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnDeleteMode"
+                    android:id="@+id/btnDeleteSP"
                     style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -162,127 +153,84 @@
                     android:checkable="true"/>
             </com.google.android.material.button.MaterialButtonToggleGroup>
 
-            <!-- ✅ Danh sách + form -->
-            <FrameLayout
+            <LinearLayout
+                android:id="@+id/foodFormContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp">
-
-                <!-- Danh sách tài khoản -->
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rvStaff"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:background="#F8F8F8"
+                android:layout_marginBottom="16dp"
+                android:visibility="gone"> <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:hint="Tên Món Ăn">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etFoodName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:nestedScrollingEnabled="false"
-                    tools:listitem="@layout/item_staff"/>
+                    android:singleLine="true"/>
+            </com.google.android.material.textfield.TextInputLayout>
 
-                <!-- Form nhập: KHỚP VỚI ENTITY Account -->
-                <LinearLayout
-                    android:id="@+id/formContainer"
+                <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="16dp"
-                    android:background="#FFF9C4"
-                    android:visibility="gone"
-                    android:elevation="8dp">
-
-                    <!-- User_Id (auto) -->
-                    <TextView
-                        android:id="@+id/tvId"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="ID: (auto)"
-                        android:textStyle="bold"
-                        android:textSize="16sp"
-                        android:layout_marginBottom="8dp"/>
-
-                    <!-- Display_Name -->
-                    <com.google.android.material.textfield.TextInputLayout
+                    android:layout_marginBottom="8dp"
+                    android:hint="Giá (VND)">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etFoodPrice"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Tên hiển thị">
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/etDisplayName"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:inputType="textPersonName"/>
-                    </com.google.android.material.textfield.TextInputLayout>
+                        android:inputType="numberDecimal"
+                        android:singleLine="true"/>
+                </com.google.android.material.textfield.TextInputLayout>
 
-                    <!-- User_Name -->
-                    <com.google.android.material.textfield.TextInputLayout
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    android:hint="Danh mục">
+                    <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                        android:id="@+id/spFoodCategory"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        android:hint="Tên đăng nhập">
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/etUserName"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:inputType="textEmailAddress"/>
-                    </com.google.android.material.textfield.TextInputLayout>
+                        android:inputType="none"/>
+                </com.google.android.material.textfield.TextInputLayout>
 
-                    <!-- Password -->
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        android:hint="Mật khẩu"
-                        app:endIconMode="password_toggle">
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/etPassword"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:inputType="textPassword"/>
-                    </com.google.android.material.textfield.TextInputLayout>
+<!--                <Button-->
+<!--                    android:id="@+id/btnSelectImage"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="Chọn ảnh sản phẩm (Food_Image)"/>-->
 
-                    <!-- Type: admin/staff (EXPOSED DROPDOWN) -->
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        android:hint="Loại tài khoản"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-                        app:endIconMode="dropdown_menu">
-
-                        <com.google.android.material.textfield.MaterialAutoCompleteTextView
-                            android:id="@+id/spType"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:inputType="none"/>
-                    </com.google.android.material.textfield.TextInputLayout>
-
-                    <!-- Nút xác nhận -->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <com.google.android.material.button.MaterialButton
-                            android:id="@+id/btnConfirm"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="Xác nhận"
-                            android:layout_marginTop="16dp"/>
-
-                        <com.google.android.material.button.MaterialButton
-                            android:id="@+id/btnCancel"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="Hủy"
-                            android:layout_marginStart="12dp"
-                            android:layout_marginTop="16dp"/>
-                    </LinearLayout>
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnConfirmFoodAction"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Xác nhận"/>
 
 
-                </LinearLayout>
-            </FrameLayout>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Danh sách Sản phẩm:"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp"/>
+
+            <ListView
+                android:id="@+id/lvFoodList"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+
         </LinearLayout>
     </ScrollView>
 
-    <!-- ======= THANH DƯỚI ======= -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
