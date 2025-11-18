@@ -18,6 +18,7 @@
         <activity android:name=".UserHomeActivity"/>
         <activity android:name=".OrderActivity"/>
         <activity android:name=".PaymentActivity" />
+        <activity android:name=".AdminFoodManagement" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
