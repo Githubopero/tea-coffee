@@ -15,5 +15,7 @@ public interface FoodCategoryDAO {
     @Insert void insert(FoodCategory c);
     @Update void update(FoodCategory c);
     @Delete void delete(FoodCategory c);
+    @Query("SELECT * FROM Food_Category WHERE Food_Category_Name = :name LIMIT 1")
+    FoodCategory findByName(String name);
 }
 

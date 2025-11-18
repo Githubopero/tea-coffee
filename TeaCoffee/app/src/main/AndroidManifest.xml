@@ -13,6 +13,7 @@
         android:theme="@style/Theme.TeaCoffee">
         <activity android:name=".AdminActivity"/>
         <activity android:name=".AdminHomeActivity"/>
+        <activity android:name=".AdminCategoryActivity" />
         <activity android:name=".UserActivity"/>
         <activity android:name=".UserHomeActivity"/>
         <activity android:name=".OrderActivity"/>

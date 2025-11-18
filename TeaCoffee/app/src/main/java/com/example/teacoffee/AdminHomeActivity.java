@@ -7,6 +7,7 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
+import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -49,8 +50,13 @@ public class AdminHomeActivity extends AppCompatActivity {
 
         // Tabs
         MaterialButtonToggleGroup tabs = findViewById(R.id.tabsGroup);
-        MaterialButton tabStaff = findViewById(R.id.btnTabStaff);
-        if (tabStaff != null) tabs.check(tabStaff.getId());
+        tabs.check(R.id.btnTabStaff);
+
+        MaterialButton tabCategory = findViewById(R.id.btnTabCategory);
+        tabCategory.setOnClickListener(v -> {
+            Intent intent = new Intent(AdminHomeActivity.this, AdminCategoryActivity.class);
+            startActivity(intent);
+        });
 
         // ==== find views
         formContainer          = findViewById(R.id.formContainer);

@@ -73,7 +73,7 @@ public class StaffAdapter extends RecyclerView.Adapter<StaffAdapter.VH> {
             tvNote = itemView.findViewById(R.id.tvRowNote);
 
             itemView.setOnClickListener(v -> {
-                int pos = getBindingAdapterPosition();
+                int pos = getAdapterPosition();
                 if (pos == RecyclerView.NO_POSITION) return;
 
                 int old = selected;
