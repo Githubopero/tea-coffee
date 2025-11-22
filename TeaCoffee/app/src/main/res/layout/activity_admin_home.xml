@@ -215,14 +215,15 @@
             android:layout_marginTop="8dp">
 
             <!-- Danh sách tài khoản -->
+
+            <!-- Form nhập: KHỚP VỚI ENTITY Account -->
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvStaff"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:overScrollMode="always"
-                tools:listitem="@layout/item_staff"/>
+                tools:listitem="@layout/item_staff" />
 
-            <!-- Form nhập: KHỚP VỚI ENTITY Account -->
             <LinearLayout
                 android:id="@+id/formContainer"
                 android:layout_width="match_parent"
