@@ -5,4 +5,10 @@
     <color name="purple">#8692f7</color>
     <color name="tc_green">#2E7D32</color>
     <color name="tc_grey">#9E9E9E</color>
+    <color name="tab_border_color">#2196F3</color>
+    <color name="staff_tab_text">#1E3A8A</color>
+    <color name="btn_add">#22C55E</color>      <!-- Thêm -->
+    <color name="btn_edit">#EAB308</color>     <!-- Sửa -->
+    <color name="btn_delete">#EF4444</color>   <!-- Xóa -->
+    <color name="btn_text_on_color">#FFFFFF</color>
 </resources>

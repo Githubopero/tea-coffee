@@ -45,13 +45,14 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <!-- Tabs -->
             <com.google.android.material.button.MaterialButtonToggleGroup
                 android:id="@+id/tabsGroup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
                 app:singleSelection="true"
-                app:selectionRequired="true"
-                android:layout_marginBottom="12dp">
+                app:selectionRequired="true">
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnTabProduct"
@@ -59,7 +60,18 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Sản phẩm"/>
+                    android:text="Sản phẩm"
+                    android:textSize="16sp"
+                    android:textAllCaps="false"
+                    android:maxLines="1"
+                    android:ellipsize="none"
+                    android:minWidth="0dp"
+                    android:paddingStart="0dp"
+                    android:paddingEnd="4dp"
+                    android:insetLeft="0dp"
+                    android:insetRight="0dp"
+                    android:textColor="@color/staff_tab_text"
+                    app:strokeColor="@color/tab_border_color"/>
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnTabCategory"
@@ -67,7 +79,18 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Danh mục"/>
+                    android:text="Danh mục"
+                    android:textSize="16sp"
+                    android:textAllCaps="false"
+                    android:maxLines="1"
+                    android:ellipsize="none"
+                    android:minWidth="0dp"
+                    android:paddingStart="0dp"
+                    android:paddingEnd="4dp"
+                    android:insetLeft="0dp"
+                    android:insetRight="0dp"
+                    android:textColor="@color/staff_tab_text"
+                    app:strokeColor="@color/tab_border_color"/>
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnTabStats"
@@ -75,7 +98,18 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Thống kê"/>
+                    android:text="Thống kê"
+                    android:textSize="16sp"
+                    android:textAllCaps="false"
+                    android:maxLines="1"
+                    android:ellipsize="none"
+                    android:minWidth="0dp"
+                    android:paddingStart="0dp"
+                    android:paddingEnd="4dp"
+                    android:insetLeft="0dp"
+                    android:insetRight="0dp"
+                    android:textColor="@color/staff_tab_text"
+                    app:strokeColor="@color/tab_border_color"/>
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnTabStaff"
@@ -83,9 +117,21 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Nhân viên"/>
+                    android:text="Nhân viên"
+                    android:textSize="16sp"
+                    android:textAllCaps="false"
+                    android:maxLines="1"
+                    android:ellipsize="none"
+                    android:minWidth="0dp"
+                    android:paddingStart="0dp"
+                    android:paddingEnd="4dp"
+                    android:insetLeft="0dp"
+                    android:insetRight="0dp"
+                    android:textColor="@color/staff_tab_text"
+                    app:strokeColor="@color/tab_border_color"/>
             </com.google.android.material.button.MaterialButtonToggleGroup>
 
+            <!-- 3 nút chế độ -->
             <com.google.android.material.button.MaterialButtonToggleGroup
                 android:id="@+id/modeGroup"
                 android:layout_width="match_parent"
@@ -102,6 +148,7 @@
                     android:layout_weight="1"
                     android:text="Thêm"
                     android:checkable="true"
+                    android:textColor="@color/btn_add"
                     android:layout_marginEnd="8dp"/>
 
                 <com.google.android.material.button.MaterialButton
@@ -112,6 +159,7 @@
                     android:layout_weight="1"
                     android:text="Sửa"
                     android:checkable="true"
+                    android:textColor="@color/btn_edit"
                     android:layout_marginEnd="8dp"/>
 
                 <com.google.android.material.button.MaterialButton
@@ -121,6 +169,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Xóa"
+                    android:textColor="@color/btn_delete"
                     android:checkable="true"/>
             </com.google.android.material.button.MaterialButtonToggleGroup>
 

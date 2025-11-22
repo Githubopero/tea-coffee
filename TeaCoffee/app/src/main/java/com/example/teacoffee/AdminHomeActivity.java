@@ -83,6 +83,21 @@ public class AdminHomeActivity extends AppCompatActivity {
             Intent intent = new Intent(AdminHomeActivity.this, AdminFoodManagement.class);
             startActivity(intent);
         });
+        btnCancel.setOnClickListener(v -> {
+            // Ẩn form
+            showForm(false);
+
+            // Xoá dữ liệu trong form (nếu có)
+            clearInputs();
+
+            // Đặt lại chế độ mặc định (ví dụ về trạng thái xem danh sách)
+            mode = Mode.EDIT;  // hoặc Mode.NONE nếu bạn có kiểu đó
+
+            // Ẩn nút HỦY
+            btnCancel.setVisibility(View.GONE);
+
+        });
+
         //======================
 
         // ==== combobox Type trong form: mặc định "staff"
