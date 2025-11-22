@@ -204,10 +204,6 @@
         "source": "C:\\Users\\FPT SHOP\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\drawable\\bg_payment_btn_primary.xml"
     },
     {
-        "merged": "com.example.teacoffee.app-debug-34:/layout_activity_report.xml.flat",
-        "source": "com.example.teacoffee.app-main-36:/layout/activity_report.xml"
-    },
-    {
         "merged": "C:\\Users\\FPT SHOP\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\drawable_ic_menu_24.xml.flat",
         "source": "C:\\Users\\FPT SHOP\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\drawable\\ic_menu_24.xml"
     },
@@ -226,6 +222,10 @@
     {
         "merged": "C:\\Users\\FPT SHOP\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\layout_dialog_qr_payment.xml.flat",
         "source": "C:\\Users\\FPT SHOP\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\layout\\dialog_qr_payment.xml"
+    },
+    {
+        "merged": "com.example.teacoffee.app-debug-34:/layout_activity_admin_home.xml.flat",
+        "source": "com.example.teacoffee.app-main-36:/layout/activity_admin_home.xml"
     },
     {
         "merged": "C:\\Users\\FPT SHOP\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\drawable_loginbkg.xml.flat",

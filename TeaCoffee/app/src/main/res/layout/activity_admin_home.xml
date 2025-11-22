@@ -206,17 +206,15 @@
                 android:checkable="true"/>
         </com.google.android.material.button.MaterialButtonToggleGroup>
 
-        <!-- ✅ Danh sách + form: CHỈ LIST CUỘN -->
+        <!-- ✅ Danh sách + form: CHỈ LIST CUỘN, FORM PHỦ HẾT KHUNG -->
         <FrameLayout
             android:id="@+id/staffListContainer"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:layout_marginTop="8dp">
+            android:layout_marginTop="0dp">
 
-            <!-- Danh sách tài khoản -->
-
-            <!-- Form nhập: KHỚP VỚI ENTITY Account -->
+            <!-- Danh sách tài khoản (chỉ nó cuộn khi form ẩn) -->
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvStaff"
                 android:layout_width="match_parent"
@@ -224,107 +222,121 @@
                 android:overScrollMode="always"
                 tools:listitem="@layout/item_staff" />
 
-            <LinearLayout
+            <!-- FORM: phủ toàn bộ vùng staffListContainer, bên trong có scroll -->
+            <androidx.core.widget.NestedScrollView
                 android:id="@+id/formContainer"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:padding="16dp"
                 android:background="#FFF9C4"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
                 android:visibility="gone"
-                android:elevation="8dp">
+                android:elevation="8dp"
+                android:fillViewport="true">
 
-                <!-- User_Id (auto) -->
-                <TextView
-                    android:id="@+id/tvId"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="ID: (auto)"
-                    android:textStyle="bold"
-                    android:textSize="16sp"
-                    android:layout_marginBottom="8dp"/>
-
-                <!-- Display_Name -->
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Tên hiển thị">
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/etDisplayName"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="textPersonName"/>
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <!-- User_Name -->
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:hint="Tên đăng nhập">
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/etUserName"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="textEmailAddress"/>
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <!-- Password -->
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:hint="Mật khẩu"
-                    app:endIconMode="password_toggle">
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/etPassword"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="textPassword"/>
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <!-- Type: admin/staff (EXPOSED DROPDOWN) -->
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:hint="Loại tài khoản"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-                    app:endIconMode="dropdown_menu">
-
-                    <com.google.android.material.textfield.MaterialAutoCompleteTextView
-                        android:id="@+id/spType"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="none"/>
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <!-- Nút xác nhận -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:orientation="vertical">
 
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/btnConfirm"
-                        android:layout_width="0dp"
+                    <!-- User_Id (auto) -->
+                    <TextView
+                        android:id="@+id/tvId"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Xác nhận"
-                        android:layout_marginTop="16dp"/>
+                        android:text="ID: (auto)"
+                        android:textStyle="bold"
+                        android:paddingTop="8dp"
+                        android:textSize="16sp"
+                        android:layout_marginBottom="8dp"/>
 
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/btnCancel"
-                        android:layout_width="0dp"
+                    <!-- Display_Name -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Hủy"
-                        android:layout_marginStart="12dp"
-                        android:layout_marginTop="16dp"/>
+                        android:hint="Tên hiển thị">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etDisplayName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textPersonName"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!-- User_Name -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:hint="Tên đăng nhập">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etUserName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textEmailAddress"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!-- Password -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:hint="Mật khẩu"
+                        app:endIconMode="password_toggle">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etPassword"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textPassword"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!-- Type: admin/staff -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:hint="Loại tài khoản"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                        app:endIconMode="dropdown_menu">
+
+                        <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                            android:id="@+id/spType"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="none"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!-- Nút xác nhận -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnConfirm"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Xác nhận"
+                            android:layout_marginTop="16dp"/>
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnCancel"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Hủy"
+                            android:layout_marginStart="12dp"
+                            android:layout_marginTop="16dp"/>
+                    </LinearLayout>
+
                 </LinearLayout>
+            </androidx.core.widget.NestedScrollView>
 
-            </LinearLayout>
         </FrameLayout>
+
     </LinearLayout>
 
     <!-- ======= THANH DƯỚI ======= -->
