@@ -57,11 +57,11 @@ public class AdminHomeActivity extends AppCompatActivity {
         MaterialButtonToggleGroup tabs = findViewById(R.id.tabsGroup);
         tabs.check(R.id.btnTabStaff);
 
-        MaterialButton tabCategory = findViewById(R.id.btnTabCategory);
-        tabCategory.setOnClickListener(v -> {
-            Intent intent = new Intent(AdminHomeActivity.this, AdminCategoryActivity.class);
-            startActivity(intent);
-        });
+//        MaterialButton tabCategory = findViewById(R.id.btnTabCategory);
+//        tabCategory.setOnClickListener(v -> {
+//            Intent intent = new Intent(AdminHomeActivity.this, AdminCategoryActivity.class);
+//            startActivity(intent);
+//        });
 
         // ==== find views
         formContainer          = findViewById(R.id.formContainer);

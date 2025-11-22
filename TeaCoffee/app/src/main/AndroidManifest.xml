@@ -12,13 +12,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TeaCoffee">
         <activity android:name=".AdminActivity"/>
-        <activity android:name=".AdminHomeActivity"/>
-        <activity android:name=".AdminCategoryActivity" />
+        <activity android:name=".AdminHomeActivity"
+            android:exported="false"/>
+        <activity android:name=".AdminCategoryActivity"
+            android:exported="false"/>
         <activity android:name=".UserActivity"/>
         <activity android:name=".UserHomeActivity"/>
         <activity android:name=".OrderActivity"/>
         <activity android:name=".PaymentActivity" />
-        <activity android:name=".AdminFoodManagement" />
+        <activity android:name=".AdminFoodManagement"
+            android:exported="false"/>
         <activity
             android:name=".ReportActivity"
             android:exported="false" />
