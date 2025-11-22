@@ -1523,6 +1523,10 @@ color bright_foreground_inverse_material_dark
 color bright_foreground_inverse_material_light
 color bright_foreground_material_dark
 color bright_foreground_material_light
+color btn_add
+color btn_delete
+color btn_edit
+color btn_text_on_color
 color button_material_dark
 color button_material_light
 color call_notification_answer_color
@@ -2421,12 +2425,14 @@ color secondary_text_default_material_dark
 color secondary_text_default_material_light
 color secondary_text_disabled_material_dark
 color secondary_text_disabled_material_light
+color staff_tab_text
 color switch_thumb_disabled_material_dark
 color switch_thumb_disabled_material_light
 color switch_thumb_material_dark
 color switch_thumb_material_light
 color switch_thumb_normal_material_dark
 color switch_thumb_normal_material_light
+color tab_border_color
 color tc_green
 color tc_grey
 color tooltip_background_dark
@@ -3857,6 +3863,7 @@ id confirm_button
 id constraint
 id container
 id content
+id contentContainer
 id contentPanel
 id contiguous
 id continuousVelocity
@@ -4189,6 +4196,7 @@ id src_atop
 id src_in
 id src_over
 id staffContainer
+id staffListContainer
 id standard
 id start
 id startHorizontal

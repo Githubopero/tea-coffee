@@ -2,7 +2,13 @@ R_DEF: Internal format may change without notice
 local
 array table_list
 color black
+color btn_add
+color btn_delete
+color btn_edit
+color btn_text_on_color
 color purple
+color staff_tab_text
+color tab_border_color
 color tc_green
 color tc_grey
 color white
@@ -76,6 +82,7 @@ id btnTabStats
 id btnTransfer
 id btnYes
 id catContainer
+id contentContainer
 id etCategoryName
 id etDisplayName
 id etFoodName
@@ -109,6 +116,7 @@ id spFoodCategory
 id spType
 id spnTable
 id staffContainer
+id staffListContainer
 id statsContainer
 id tabOrder
 id tabPayment

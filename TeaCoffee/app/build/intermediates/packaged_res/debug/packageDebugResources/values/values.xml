@@ -23,7 +23,13 @@
         <item>Bàn số 20</item>
     </string-array>
     <color name="black">#FF000000</color>
+    <color name="btn_add">#22C55E</color>
+    <color name="btn_delete">#EF4444</color>
+    <color name="btn_edit">#EAB308</color>
+    <color name="btn_text_on_color">#FFFFFF</color>
     <color name="purple">#8692f7</color>
+    <color name="staff_tab_text">#1E3A8A</color>
+    <color name="tab_border_color">#2196F3</color>
     <color name="tc_green">#2E7D32</color>
     <color name="tc_grey">#9E9E9E</color>
     <color name="white">#FFFFFFFF</color>
