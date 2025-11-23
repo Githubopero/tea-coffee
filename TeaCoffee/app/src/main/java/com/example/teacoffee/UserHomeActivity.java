@@ -57,8 +57,10 @@ public class UserHomeActivity extends AppCompatActivity {
             startActivity(it);
         });
 
-        btnMerge.setOnClickListener(v ->
-                Toast.makeText(this,"Tính năng gộp bàn sẽ làm sau",Toast.LENGTH_SHORT).show());
+        btnMerge.setOnClickListener(v -> {
+            Intent it = new Intent(UserHomeActivity.this, BillListActivity.class);
+            startActivity(it);
+        });
 
         // Thanh toán
         btnPay.setOnClickListener(v -> {
