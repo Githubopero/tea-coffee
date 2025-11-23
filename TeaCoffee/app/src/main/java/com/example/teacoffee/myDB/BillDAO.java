@@ -27,6 +27,13 @@ public interface BillDAO {
     @Query("SELECT * FROM Bill WHERE Status = '1' AND Date_Checkout BETWEEN :startTime AND :endTime ORDER BY Date_Checkout DESC")
     List<Bill> getClosedBillsInPeriod(long startTime, long endTime);
 
+    // Lấy tất cả hóa đơn chưa thanh toán
+    @Query("SELECT * FROM Bill WHERE Status = '0' ORDER BY Date_Checkin DESC")
+    List<Bill> getOpenBills();
+
+    // Lấy tất cả hóa đơn đã thanh toán
+    @Query("SELECT * FROM Bill WHERE Status = '1' ORDER BY Date_Checkout DESC")
+    List<Bill> getClosedBills();
 
 
 }

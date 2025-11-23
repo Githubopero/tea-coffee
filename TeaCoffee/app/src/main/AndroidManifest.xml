@@ -22,6 +22,8 @@
         <activity android:name=".PaymentActivity" />
         <activity android:name=".AdminFoodManagement"
             android:exported="false"/>
+        <activity android:name=".BillListActivity" />
+
         <activity
             android:name=".ReportActivity"
             android:exported="false" />

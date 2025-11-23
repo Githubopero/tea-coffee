@@ -185,6 +185,8 @@ public class OrderActivity extends AppCompatActivity {
                 r = 0.055; // 5.5%
             } else if (name.contains("sinh tố") || name.contains("sinh to") || name.contains("smoothie")) {
                 r = 0.10;  // 10%
+            }else {
+                r= 0.10;
             }
             // có thể thêm: else if (name.contains("trà") || name.contains("tea")) r = 0.0;
             catDiscountRate.put(c.Food_Category_Id, r);
