@@ -33,159 +33,211 @@
             app:tint="#4E4E4E" />
     </LinearLayout>
 
-    <!-- ======= PHẦN CHÍNH (SCROLLVIEW) ======= -->
-    <ScrollView
+    <!-- ======= PHẦN CHÍNH (KHÔNG DÙNG ScrollView, CHỈ LIST CUỘN) ======= -->
+    <LinearLayout
+        android:id="@+id/contentContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="60dp"
         android:layout_marginBottom="60dp"
         android:padding="12dp"
-        android:fillViewport="true">
+        android:orientation="vertical">
 
+        <!-- Tabs -->
+        <com.google.android.material.button.MaterialButtonToggleGroup
+            android:id="@+id/tabsGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            app:singleSelection="true"
+            app:selectionRequired="true">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnTabProduct"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Sản phẩm"
+                android:textSize="16sp"
+                android:textAllCaps="false"
+                android:maxLines="1"
+                android:ellipsize="none"
+                android:minWidth="0dp"
+                android:paddingStart="0dp"
+                android:paddingEnd="4dp"
+                android:insetLeft="0dp"
+                android:insetRight="0dp"
+                android:textColor="@color/staff_tab_text"
+                app:strokeColor="@color/tab_border_color"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnTabCategory"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Danh mục"
+                android:textSize="16sp"
+                android:textAllCaps="false"
+                android:maxLines="1"
+                android:ellipsize="none"
+                android:minWidth="0dp"
+                android:paddingStart="0dp"
+                android:paddingEnd="4dp"
+                android:insetLeft="0dp"
+                android:insetRight="0dp"
+                android:textColor="@color/staff_tab_text"
+                app:strokeColor="@color/tab_border_color"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnTabStats"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Thống kê"
+                android:textSize="16sp"
+                android:textAllCaps="false"
+                android:maxLines="1"
+                android:ellipsize="none"
+                android:minWidth="0dp"
+                android:paddingStart="0dp"
+                android:paddingEnd="4dp"
+                android:insetLeft="0dp"
+                android:insetRight="0dp"
+                android:textColor="@color/staff_tab_text"
+                app:strokeColor="@color/tab_border_color"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnTabStaff"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Nhân viên"
+                android:textSize="16sp"
+                android:textAllCaps="false"
+                android:maxLines="1"
+                android:ellipsize="none"
+                android:minWidth="0dp"
+                android:paddingStart="0dp"
+                android:paddingEnd="4dp"
+                android:insetLeft="0dp"
+                android:insetRight="0dp"
+                android:textColor="@color/staff_tab_text"
+                app:strokeColor="@color/tab_border_color"/>
+        </com.google.android.material.button.MaterialButtonToggleGroup>
+
+        <!-- ======= BỘ LỌC LOẠI TÀI KHOẢN ======= -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="horizontal"
+            android:gravity="end|center_vertical"
+            android:layout_marginBottom="5dp">
 
-            <!-- Tabs -->
-            <com.google.android.material.button.MaterialButtonToggleGroup
-                android:id="@+id/tabsGroup"
-                android:layout_width="match_parent"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:singleSelection="true"
-                app:selectionRequired="true"
-                android:layout_marginBottom="12dp">
+                android:text="Loại tài khoản:"
+                android:textSize="16sp"
+                android:layout_marginEnd="12dp" />
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnTabProduct"
-                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Sản phẩm"/>
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnTabCategory" style="@style/Widget.MaterialComponents.Button.OutlinedButton"                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Danh mục"/>
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnTabStats"
-                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Thống kê"/>
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnTabStaff"
-                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Nhân viên"/>
-            </com.google.android.material.button.MaterialButtonToggleGroup>
-
-            <!-- ======= BỘ LỌC LOẠI TÀI KHOẢN (nhỏ + không hint) ======= -->
-            <LinearLayout
-                android:layout_width="match_parent"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilAccountTypeFilter"
+                android:layout_width="140dp"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="end|center_vertical"
-                android:layout_marginBottom="5dp">
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                app:endIconMode="dropdown_menu"
+                app:hintEnabled="false">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Loại tài khoản:"
-                    android:textSize="16sp"
-                    android:layout_marginEnd="12dp"
-                    />
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/tilAccountTypeFilter"
-                    android:layout_width="140dp"
-                    android:layout_height="wrap_content"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-                    app:endIconMode="dropdown_menu"
-                    app:hintEnabled="false">
-
-                    <com.google.android.material.textfield.MaterialAutoCompleteTextView
-                        android:id="@+id/spAccountTypeFilter"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:singleLine="true"
-                        android:ellipsize="end"
-                        android:paddingHorizontal="8dp"
-                        android:inputType="none"/>
-
-                </com.google.android.material.textfield.TextInputLayout>
-            </LinearLayout>
-
-            <!-- 3 nút chế độ -->
-            <com.google.android.material.button.MaterialButtonToggleGroup
-                android:id="@+id/modeGroup"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:singleSelection="true"
-                app:selectionRequired="true"
-                android:layout_marginBottom="12dp">
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnAddMode"
-                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Thêm"
-                    android:checkable="true"
-                    android:layout_marginEnd="8dp"/>
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnEditMode"
-                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Sửa"
-                    android:checkable="true"
-                    android:layout_marginEnd="8dp"/>
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnDeleteMode"
-                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Xóa"
-                    android:checkable="true"/>
-            </com.google.android.material.button.MaterialButtonToggleGroup>
-
-            <!-- ✅ Danh sách + form -->
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp">
-
-                <!-- Danh sách tài khoản -->
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rvStaff"
+                <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                    android:id="@+id/spAccountTypeFilter"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:nestedScrollingEnabled="false"
-                    tools:listitem="@layout/item_staff"/>
+                    android:layout_height="match_parent"
+                    android:singleLine="true"
+                    android:ellipsize="end"
+                    android:paddingHorizontal="8dp"
+                    android:inputType="none"/>
 
-                <!-- Form nhập: KHỚP VỚI ENTITY Account -->
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+
+        <!-- 3 nút chế độ -->
+        <com.google.android.material.button.MaterialButtonToggleGroup
+            android:id="@+id/modeGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:singleSelection="true"
+            app:selectionRequired="true"
+            android:layout_marginBottom="12dp">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnAddMode"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Thêm"
+                android:checkable="true"
+                android:textColor="@color/btn_add"
+                android:layout_marginEnd="8dp"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnEditMode"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Sửa"
+                android:checkable="true"
+                android:textColor="@color/btn_edit"
+                android:layout_marginEnd="8dp"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnDeleteMode"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Xóa"
+                android:textColor="@color/btn_delete"
+                android:checkable="true"/>
+        </com.google.android.material.button.MaterialButtonToggleGroup>
+
+        <!-- ✅ Danh sách + form: CHỈ LIST CUỘN, FORM PHỦ HẾT KHUNG -->
+        <FrameLayout
+            android:id="@+id/staffListContainer"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginTop="0dp">
+
+            <!-- Danh sách tài khoản (chỉ nó cuộn khi form ẩn) -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvStaff"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:overScrollMode="always"
+                tools:listitem="@layout/item_staff" />
+
+            <!-- FORM: phủ toàn bộ vùng staffListContainer, bên trong có scroll -->
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/formContainer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#FFF9C4"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:visibility="gone"
+                android:elevation="8dp"
+                android:fillViewport="true">
+
                 <LinearLayout
-                    android:id="@+id/formContainer"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="16dp"
-                    android:background="#FFF9C4"
-                    android:visibility="gone"
-                    android:elevation="8dp">
+                    android:orientation="vertical">
 
                     <!-- User_Id (auto) -->
                     <TextView
@@ -194,6 +246,7 @@
                         android:layout_height="wrap_content"
                         android:text="ID: (auto)"
                         android:textStyle="bold"
+                        android:paddingTop="8dp"
                         android:textSize="16sp"
                         android:layout_marginBottom="8dp"/>
 
@@ -202,6 +255,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Tên hiển thị">
+
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/etDisplayName"
                             android:layout_width="match_parent"
@@ -215,6 +269,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
                         android:hint="Tên đăng nhập">
+
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/etUserName"
                             android:layout_width="match_parent"
@@ -229,6 +284,7 @@
                         android:layout_marginTop="12dp"
                         android:hint="Mật khẩu"
                         app:endIconMode="password_toggle">
+
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/etPassword"
                             android:layout_width="match_parent"
@@ -236,7 +292,7 @@
                             android:inputType="textPassword"/>
                     </com.google.android.material.textfield.TextInputLayout>
 
-                    <!-- Type: admin/staff (EXPOSED DROPDOWN) -->
+                    <!-- Type: admin/staff -->
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -276,11 +332,12 @@
                             android:layout_marginTop="16dp"/>
                     </LinearLayout>
 
-
                 </LinearLayout>
-            </FrameLayout>
-        </LinearLayout>
-    </ScrollView>
+            </androidx.core.widget.NestedScrollView>
+
+        </FrameLayout>
+
+    </LinearLayout>
 
     <!-- ======= THANH DƯỚI ======= -->
     <LinearLayout

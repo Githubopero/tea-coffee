@@ -18,6 +18,9 @@ public interface TableDAO {
     // Thứ tự tham số phải khớp tên placeholder hoặc chuyển thành (status, id)
     @Query("UPDATE Cafe_Table SET Status = :status WHERE Table_Id = :id")
     void updateStatus(int status, int id);
+    //thêm bàn theo id
+    @Query("SELECT * FROM Cafe_Table WHERE Table_Id = :id LIMIT 1")
+    TableEntity getById(int id);
 
     @Insert void insert(TableEntity t);
     @Update void update(TableEntity t);
