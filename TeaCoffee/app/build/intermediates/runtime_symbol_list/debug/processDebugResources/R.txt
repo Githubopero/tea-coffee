@@ -3604,6 +3604,7 @@ int drawable ic_clear_black_24 0x7f0800ac
 int drawable ic_clock_black_24dp 0x7f0800ad
 int drawable ic_expand_less_22px 0x7f0800ae
 int drawable ic_expand_more_22px 0x7f0800af
+int drawable ic_export_pdf_24 0x7f080113
 int drawable ic_home_24 0x7f0800b0
 int drawable ic_keyboard_black_24dp 0x7f0800b1
 int drawable ic_launcher_background 0x7f0800b2
@@ -3988,6 +3989,7 @@ int id inward 0x7f090119
 int id italic 0x7f09011a
 int id itemRoot 0x7f09011b
 int id item_touch_helper_previous_elevation 0x7f09011c
+int id ivExportPdf 0x7f090283
 int id ivOrder 0x7f09011d
 int id ivPayment 0x7f09011e
 int id ivReserve 0x7f09011f
@@ -8173,6 +8175,7 @@ int[] styleable include { 0x7f04013d }
 int styleable include_constraintSet 0
 int xml backup_rules 0x7f130000
 int xml data_extraction_rules 0x7f130001
+int xml file_paths 0x7f130006
 int xml m3_button_group_child_size_change 0x7f130002
 int xml m3_split_button_inner_corner_size_state_list 0x7f130003
 int xml m3expressive_button_shape_state_list 0x7f130004

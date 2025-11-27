@@ -1,3 +1,6 @@
+com.example.teacoffee:xml/file_paths = 0x7f130006
+com.example.teacoffee:id/ivExportPdf = 0x7f090283
+com.example.teacoffee:drawable/ic_export_pdf_24 = 0x7f080113
 com.example.teacoffee:styleable/Chip = 0x7f12001d
 com.example.teacoffee:attr/imagePanX = 0x7f040276
 com.example.teacoffee:styleable/PopupWindow = 0x7f120075
