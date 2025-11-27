@@ -3834,6 +3834,7 @@ id btnPayBill
 id btnPlus
 id btnReserve
 id btnSave
+id btnShowChart
 id btnStartDate
 id btnTabCategory
 id btnTabPaid
@@ -4182,7 +4183,7 @@ id shortcut
 id showCustom
 id showHome
 id showTitle
-id signupText
+id simpleBarChart
 id sin
 id skipCollapsed
 id skipped

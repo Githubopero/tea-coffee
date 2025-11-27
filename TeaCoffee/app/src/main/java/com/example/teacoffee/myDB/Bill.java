@@ -30,7 +30,7 @@ public class Bill {
     public String Status;       // ví dụ: Open/Closed/Cancelled
     public String Note;         // ghi chú
     public Integer Discount;    // %
-    public Integer Total_Price; // tổng tiền (sau chiết khấu nếu bạn muốn)
+    public Integer Total_Price; // tổng tiền (sau chiết khấu)
 
     @ColumnInfo(name = "Table_Id")
     public int Table_Id;

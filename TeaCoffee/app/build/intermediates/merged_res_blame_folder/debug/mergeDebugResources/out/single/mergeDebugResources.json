@@ -120,6 +120,10 @@
         "source": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\drawable\\ic_order.xml"
     },
     {
+        "merged": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\drawable_ic_export_pdf_24.png.flat",
+        "source": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\drawable\\ic_export_pdf_24.png"
+    },
+    {
         "merged": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\drawable_bg_table_busy.xml.flat",
         "source": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\drawable\\bg_table_busy.xml"
     },
@@ -148,6 +152,10 @@
         "source": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\drawable\\bg_table.xml"
     },
     {
+        "merged": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\xml_file_paths.xml.flat",
+        "source": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\xml\\file_paths.xml"
+    },
+    {
         "merged": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\drawable_bg_chip_pink.xml.flat",
         "source": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\drawable\\bg_chip_pink.xml"
     },
@@ -166,10 +174,6 @@
     {
         "merged": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\drawable_bg_table_free.xml.flat",
         "source": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-main-36:\\drawable\\bg_table_free.xml"
-    },
-    {
-        "merged": "com.example.teacoffee.app-debug-34:/drawable_ic_export_pdf_24.png.flat",
-        "source": "com.example.teacoffee.app-main-36:/drawable/ic_export_pdf_24.png"
     },
     {
         "merged": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\layout_item_bill.xml.flat",
@@ -234,10 +238,6 @@
     {
         "merged": "com.example.teacoffee.app-debug-34:/layout_activity_report.xml.flat",
         "source": "com.example.teacoffee.app-main-36:/layout/activity_report.xml"
-    },
-    {
-        "merged": "com.example.teacoffee.app-debug-34:/xml_file_paths.xml.flat",
-        "source": "com.example.teacoffee.app-main-36:/xml/file_paths.xml"
     },
     {
         "merged": "C:\\Users\\my pc\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-debug-34:\\xml_data_extraction_rules.xml.flat",
