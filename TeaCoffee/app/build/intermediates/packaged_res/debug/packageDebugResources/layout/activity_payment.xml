@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="12dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFF7EC">
+
+    <!-- HEADER -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="The TeaCoffee"
+            android:textStyle="italic"
+            android:textSize="26sp"
+            android:textColor="#2E7D32"
+            android:fontFamily="cursive" />
+
+        <ImageView
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:padding="6dp"
+            android:background="@drawable/bg_circle_icon"
+            app:srcCompat="@android:drawable/arrow_down_float"
+            app:tint="#2E7D32" />
+    </LinearLayout>
+
+    <!-- THANH "CHI TIẾT HÓA ĐƠN" + CHIP BÀN -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/bg_payment_top_bar"
+        android:paddingHorizontal="18dp"
+        android:paddingVertical="10dp"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Chi tiết hóa đơn"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textColor="#3D3D3D" />
+
+        <TextView
+            android:id="@+id/tvTable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="6dp"
+            android:text="Bàn số 15"
+            android:textStyle="bold"
+            android:textColor="#3D3D3D"
+            android:background="@drawable/bg_chip_pink" />
+    </LinearLayout>
+
+    <!-- KHU VỰC DANH SÁCH MÓN -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="8dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="4dp">
+
+            <!-- HÀNG HEADER: Tên món / Đơn giá / Số lượng -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="4dp"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:text="Tên món"
+                    android:textStyle="bold"
+                    android:textColor="#3D3D3D"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:text="Đơn giá"
+                    android:textStyle="bold"
+                    android:textColor="#3D3D3D"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="end"
+                    android:text="Số lượng"
+                    android:textStyle="bold"
+                    android:textColor="#3D3D3D"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <!-- DANH SÁCH MÓN ĐƯỢC THÊM BẰNG CODE -->
+            <LinearLayout
+                android:id="@+id/listContainer"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- TỔNG KẾT + NÚT THANH TOÁN -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="4dp">
+
+        <!-- CARD TỔNG KẾT -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_payment_summary"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvTotalQty"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tổng số lượng: 0"
+                android:textColor="#3D3D3D" />
+
+            <TextView
+                android:id="@+id/tvSubtotal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tiền hàng: 0 đ"
+                android:textColor="#3D3D3D" />
+
+            <TextView
+                android:id="@+id/tvDiscount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Chiết khấu: 0% (0 đ)"
+                android:textColor="#3D3D3D" />
+
+            <TextView
+                android:id="@+id/tvGrand"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tổng tiền thanh toán: 0 đ"
+                android:textStyle="bold"
+                android:textColor="#3D3D3D" />
+        </LinearLayout>
+
+        <!-- NÚT TIỀN MẶT / CHUYỂN KHOẢN -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="10dp">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnCash"
+                android:layout_width="0dp"
+                android:layout_height="52dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                android:text="Tiền mặt"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                android:background="@drawable/bg_payment_btn_primary"
+                android:backgroundTint="@null"
+                app:backgroundTint="@null" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnTransfer"
+                android:layout_width="0dp"
+                android:layout_height="52dp"
+                android:layout_weight="1"
+                android:text="Chuyển khoản"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                android:background="@drawable/bg_payment_btn_secondary"
+                android:backgroundTint="@null"
+                app:backgroundTint="@null" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>
