@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_marginTop="10dp"
+    android:layout_marginBottom="4dp"
+    android:background="@drawable/bg_table_free"
+    android:padding="14dp">
+
+    <!-- HEADER: Bàn + mã hóa đơn -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvTableName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bàn 1"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textColor="#333333" />
+
+        <TextView
+            android:id="@+id/tvBillCode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="Mã hóa đơn #1"
+            android:textSize="12sp"
+            android:textColor="#777777" />
+    </LinearLayout>
+
+    <!-- LINE -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="8dp"
+        android:background="#E1D2B5" />
+
+    <!-- NGÀY ĐẶT / NGÀY THANH TOÁN -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="8dp">
+
+        <TextView
+            android:id="@+id/tvDateCheckin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ngày đặt bàn: 21/12/2004"
+            android:textColor="#444444"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/tvDateCheckout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="Ngày thanh toán: 21/12/2004"
+            android:textColor="#444444"
+            android:textSize="13sp" />
+    </LinearLayout>
+
+    <!-- NÚT XỔ -->
+    <TextView
+        android:id="@+id/tvToggleDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_gravity="center_horizontal"
+        android:text="Chi tiết >>"
+        android:textStyle="italic"
+        android:textSize="13sp"
+        android:textColor="#2E7D32" />
+
+    <!-- KHU VỰC CHI TIẾT (ẩn mặc định) -->
+    <LinearLayout
+        android:id="@+id/layoutDetails"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="8dp"
+        android:visibility="gone">
+
+        <!-- Tiêu đề danh sách món -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Danh sách món đã đặt"
+            android:textStyle="bold"
+            android:textSize="13sp"
+            android:textColor="#333333" />
+
+        <!-- HEADER 3 CỘT -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="6dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="Tên món"
+                android:textStyle="bold"
+                android:textSize="13sp"
+                android:textColor="#555555" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Đơn giá"
+                android:gravity="end"
+                android:textStyle="bold"
+                android:textSize="13sp"
+                android:textColor="#555555" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="SL"
+                android:gravity="end"
+                android:textStyle="bold"
+                android:textSize="13sp"
+                android:textColor="#555555" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="4dp"
+            android:background="#E1D2B5" />
+
+        <!-- LIST MÓN (các dòng sẽ add bằng code) -->
+        <LinearLayout
+            android:id="@+id/layoutItems"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="4dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="4dp"
+            android:background="#E1D2B5" />
+
+        <!-- TỔNG KẾ -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="6dp">
+
+            <!-- Chiết khấu -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Chiết khấu:"
+                    android:textSize="13sp"
+                    android:textColor="#444444" />
+
+                <TextView
+                    android:id="@+id/tvDiscount"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="end"
+                    android:text="0 đ"
+                    android:textSize="13sp"
+                    android:textColor="#444444" />
+            </LinearLayout>
+
+            <!-- Thành tiền -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Thành tiền:"
+                    android:textSize="13sp"
+                    android:textColor="#444444" />
+
+                <TextView
+                    android:id="@+id/tvTotal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="end"
+                    android:text="0 đ"
+                    android:textSize="13sp"
+                    android:textColor="#444444" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- 2 BUTTON Ở DƯỚI CÙNG -->
+        <LinearLayout
+            android:id="@+id/layoutButtons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="end"
+            android:layout_marginTop="10dp">
+
+            <!-- 2 BUTTON Ở DƯỚI CÙNG -->
+            <LinearLayout
+                android:id="@+id/layoutButtons"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="end"
+                android:layout_marginTop="10dp">
+
+                <!-- NÚT CHỈNH SỬA - MÀU TÍM -->
+                <Button
+                    android:id="@+id/btnEditBill"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="Chỉnh sửa"
+                    android:textAllCaps="false"
+                    android:textSize="14sp"
+                    android:textColor="@android:color/white"
+                    android:background="@drawable/bg_btn_purple"
+                    android:backgroundTint="@null"
+                    android:elevation="0dp"/>
+
+                <!-- NÚT THANH TOÁN - MÀU XANH -->
+                <Button
+                    android:id="@+id/btnPayBill"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:layout_marginStart="12dp"
+                    android:text="Thanh toán"
+                    android:textAllCaps="false"
+                    android:textSize="14sp"
+                    android:textColor="@android:color/white"
+                    android:background="@drawable/bg_btn_green"
+                    android:backgroundTint="@null"
+                    android:elevation="0dp"/>
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
