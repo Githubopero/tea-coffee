@@ -3833,6 +3833,7 @@ int id btnPayBill 0x7f09007d
 int id btnPlus 0x7f09007e
 int id btnReserve 0x7f09007f
 int id btnSave 0x7f090080
+int id btnShowChart 0x7f090284
 int id btnStartDate 0x7f090081
 int id btnTabCategory 0x7f090082
 int id btnTabPaid 0x7f090083
@@ -4181,7 +4182,7 @@ int id shortcut 0x7f0901d8
 int id showCustom 0x7f0901d9
 int id showHome 0x7f0901da
 int id showTitle 0x7f0901db
-int id signupText 0x7f0901dc
+int id simpleBarChart 0x7f090285
 int id sin 0x7f0901dd
 int id skipCollapsed 0x7f0901de
 int id skipped 0x7f0901df

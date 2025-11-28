@@ -81,6 +81,7 @@ id btnPayBill
 id btnPlus
 id btnReserve
 id btnSave
+id btnShowChart
 id btnStartDate
 id btnTabCategory
 id btnTabPaid
@@ -122,7 +123,7 @@ id rowContainer
 id rvBills
 id rvCategory
 id rvStaff
-id signupText
+id simpleBarChart
 id spAccountTypeFilter
 id spCategoryFilter
 id spFoodCategory
