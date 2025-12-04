@@ -527,6 +527,39 @@ public final class BillDAO_Impl implements BillDAO {
     });
   }
 
+  @Override
+  public List<FoodSalesStats> getSoldFoodsInPeriod(final long startTime, final long endTime) {
+    final String _sql = "SELECT f.Food_Name AS foodName, SUM(bi.Count) AS quantity FROM Bill_Infor bi JOIN Food f ON bi.Food_Id = f.Food_Id JOIN Bill b ON bi.Bill_Id = b.Bill_Id WHERE b.Status = '1' AND b.Date_Checkout BETWEEN ? AND ? GROUP BY f.Food_Id, f.Food_Name ORDER BY quantity DESC";
+    return DBUtil.performBlocking(__db, true, false, (_connection) -> {
+      final SQLiteStatement _stmt = _connection.prepare(_sql);
+      try {
+        int _argIndex = 1;
+        _stmt.bindLong(_argIndex, startTime);
+        _argIndex = 2;
+        _stmt.bindLong(_argIndex, endTime);
+        final int _columnIndexOfFoodName = 0;
+        final int _columnIndexOfQuantity = 1;
+        final List<FoodSalesStats> _result = new ArrayList<FoodSalesStats>();
+        while (_stmt.step()) {
+          final FoodSalesStats _item;
+          final String _tmpFoodName;
+          if (_stmt.isNull(_columnIndexOfFoodName)) {
+            _tmpFoodName = null;
+          } else {
+            _tmpFoodName = _stmt.getText(_columnIndexOfFoodName);
+          }
+          final long _tmpQuantity;
+          _tmpQuantity = _stmt.getLong(_columnIndexOfQuantity);
+          _item = new FoodSalesStats(_tmpFoodName,_tmpQuantity);
+          _result.add(_item);
+        }
+        return _result;
+      } finally {
+        _stmt.close();
+      }
+    });
+  }
+
   @NonNull
   public static List<Class<?>> getRequiredConverters() {
     return Collections.emptyList();

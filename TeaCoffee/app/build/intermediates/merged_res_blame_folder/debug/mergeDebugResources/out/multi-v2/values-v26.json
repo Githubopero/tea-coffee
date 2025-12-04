@@ -4,7 +4,47 @@
             "outputFile": "com.example.teacoffee.app-mergeDebugResources-32:/values-v26/values-v26.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\my pc\\.gradle\\caches\\8.13\\transforms\\b9c9a2dbb8fa3e03861c97204a8b8e14\\transformed\\appcompat-1.7.1\\res\\values-v26\\values-v26.xml",
+                    "source": "C:\\Users\\ADMIN\\.gradle\\caches\\8.13\\transforms\\b9c9a2dbb8fa3e03861c97204a8b8e14\\transformed\\appcompat-1.7.1\\res\\values-v26\\values-v26.xml",
+                    "from": {
+                        "startLines": "-1,-1,-1,-1,-1,-1",
+                        "startColumns": "-1,-1,-1,-1,-1,-1",
+                        "startOffsets": "-1,-1,-1,-1,-1,-1"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,8,12,16",
+                        "startColumns": "4,4,4,4,4,4",
+                        "startOffsets": "55,130,217,381,557,796",
+                        "endLines": "2,3,7,11,15,16",
+                        "endColumns": "74,86,12,12,12,92",
+                        "endOffsets": "125,212,376,552,791,884"
+                    }
+                },
+                {
+                    "source": "D:\\Backup2\\BTL_Android\\TeaCoffee\\app\\src\\main\\res\\values-v26\\styles.xml",
+                    "from": {
+                        "startLines": "3",
+                        "startColumns": "4",
+                        "startOffsets": "59",
+                        "endLines": "13",
+                        "endColumns": "12",
+                        "endOffsets": "640"
+                    },
+                    "to": {
+                        "startLines": "17",
+                        "startColumns": "4",
+                        "startOffsets": "889",
+                        "endLines": "27",
+                        "endColumns": "12",
+                        "endOffsets": "1460"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "C:\\Users\\ADMIN\\.gradle\\daemon\\8.13\\com.example.teacoffee.app-mergeDebugResources-32:\\values-v26\\values-v26.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\ADMIN\\.gradle\\caches\\8.13\\transforms\\b9c9a2dbb8fa3e03861c97204a8b8e14\\transformed\\appcompat-1.7.1\\res\\values-v26\\values-v26.xml",
                     "from": {
                         "startLines": "2,3,4,8,12,16",
                         "startColumns": "4,4,4,4,4,4",

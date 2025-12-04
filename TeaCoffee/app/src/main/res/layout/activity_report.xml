@@ -196,22 +196,38 @@
                         android:gravity="center"
                         android:layout_weight="5"/>
                 </LinearLayout>
-
-                <TextView
-                    android:id="@+id/tvTotalRevenue"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Tổng Doanh Thu: 0 VNĐ"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:textColor="#2E7D32"
-                    android:gravity="end"
-                    android:paddingVertical="8dp" />
-<!--                <com.example.teacoffee.CustomBarChart-->
-<!--                    android:id="@+id/revenueChart"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="300dp"-->
-<!--                    android:layout_marginTop="16dp" />-->
+                    android:layout_height="wrap_content">
+                    <Button
+                        android:id="@+id/btnShowChart"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Biểu đồ số lượng món"
+                        android:layout_weight="1"/>
+                    <TextView
+                        android:id="@+id/tvTotalRevenue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Tổng Doanh Thu: 0 VNĐ"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="#2E7D32"
+                        android:gravity="end"
+                        android:paddingVertical="8dp"
+                        />
+
+                </LinearLayout>
+
+
+                <!-- BIỂU ĐỒ TỰ VẼ - SIÊU NHẸ -->
+                <com.example.teacoffee.myDB.SimpleBarChart
+                    android:id="@+id/simpleBarChart"
+                    android:layout_width="match_parent"
+                    android:layout_height="420dp"
+                    android:layout_margin="16dp"
+                    android:background="#F8F9FA"
+                    android:visibility="gone"/>
                 <TextView
                     android:id="@+id/tvNoDataMessage"
                     android:layout_width="match_parent"

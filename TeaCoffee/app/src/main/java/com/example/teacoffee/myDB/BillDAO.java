@@ -5,6 +5,7 @@ import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
+
 import java.util.List;
 
 @Dao
@@ -36,4 +37,15 @@ public interface BillDAO {
     List<Bill> getClosedBills();
 
 
+
+    @Query("SELECT f.Food_Name AS foodName, " +
+            "SUM(bi.Count) AS quantity " +
+            "FROM Bill_Infor bi " +
+            "JOIN Food f ON bi.Food_Id = f.Food_Id " +
+            "JOIN Bill b ON bi.Bill_Id = b.Bill_Id " +
+            "WHERE b.Status = '1' " +
+            "AND b.Date_Checkout BETWEEN :startTime AND :endTime " +
+            "GROUP BY f.Food_Id, f.Food_Name " +
+            "ORDER BY quantity DESC")
+    List<FoodSalesStats> getSoldFoodsInPeriod(long startTime, long endTime);
 }

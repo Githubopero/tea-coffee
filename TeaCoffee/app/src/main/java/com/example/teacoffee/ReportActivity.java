@@ -22,12 +22,15 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.teacoffee.adapter.BillAdapter;
 import com.example.teacoffee.myDB.Bill;
 import com.example.teacoffee.myDB.BillDAO;
+import com.example.teacoffee.myDB.FoodSalesStats;
 import com.example.teacoffee.myDB.MyDatabase;
+import com.example.teacoffee.myDB.SimpleBarChart;
 
 import java.io.IOException;
 import java.io.OutputStream;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -60,6 +63,11 @@ public class ReportActivity extends AppCompatActivity {
     // Danh sách hóa đơn hiện tại và request code cho SAF
     private List<Bill> currentBills = List.of();
     private static final int CREATE_FILE_REQUEST_CODE = 200;
+
+
+    private SimpleBarChart simpleBarChart;
+    private Button btnShowChart;
+    private boolean isChartVisible = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -102,11 +110,63 @@ public class ReportActivity extends AppCompatActivity {
         // ✅ NEW: Listener cho nút Xuất PDF
         ivExportPdf.setOnClickListener(v -> exportPdfReport());
 
+
+        simpleBarChart = findViewById(R.id.simpleBarChart);
+        btnShowChart = findViewById(R.id.btnShowChart);
+
+        btnShowChart.setOnClickListener(v -> {
+            isChartVisible = !isChartVisible;
+            if (isChartVisible) {
+                loadSimpleChart();
+                simpleBarChart.setVisibility(View.VISIBLE);
+                rvBills.setVisibility(View.GONE);
+                btnShowChart.setText("Ẩn biểu đồ");
+            } else {
+                simpleBarChart.setVisibility(View.GONE);
+                rvBills.setVisibility(View.VISIBLE);
+                btnShowChart.setText("Biểu đồ số lượng món");
+            }
+        });
+
+//        SimpleBarChart barChart = findViewById(R.id.simpleBarChart);
+//        List<SimpleBarChart.BarData> list = new ArrayList<>();
+//        list.add(new SimpleBarChart.BarData("Trà sữa trân châu", 89));
+//        list.add(new SimpleBarChart.BarData("Cà phê đen", 72));
+//        list.add(new SimpleBarChart.BarData("Sinh tố dâu", 65));
+//// ... thêm bao nhiêu cũng được
+//
+//        barChart.setData(list);
+
         // ✅ GỌI NavigationHelper để quản lý việc chuyển đổi Activity
         NavigationHelper.setupAdminTabs(this, R.id.btnTabStats);
 
         // Tải dữ liệu lần đầu (vì không dùng onTabSelected nữa)
         loadReportData();
+    }
+
+    private void loadSimpleChart() {
+        long startTime = startCalendar.getTimeInMillis();
+        long endTime = endCalendar.getTimeInMillis();
+
+        Executors.newSingleThreadExecutor().execute(() -> {
+            List<FoodSalesStats> list = billDAO.getSoldFoodsInPeriod(startTime, endTime);
+
+            runOnUiThread(() -> {
+                if (list.isEmpty()) {
+                    Toast.makeText(this, "Không có dữ liệu", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                List<SimpleBarChart.BarData> chartData = new ArrayList<>();
+                for (FoodSalesStats item : list) {
+                    if (item.quantity > 0) {
+                        chartData.add(new SimpleBarChart.BarData(item.foodName, (int) item.quantity));
+                    }
+                }
+
+                simpleBarChart.setData(chartData);
+            });
+        });
     }
 
     // ==============================================================
@@ -125,10 +185,12 @@ public class ReportActivity extends AppCompatActivity {
                     calendar.set(selectedYear, selectedMonth, selectedDay);
                     textView.setText(dateFormat.format(calendar.getTime()));
                     loadReportData(); // Tải lại dữ liệu khi đổi ngày
+                    loadSimpleChart(); // TỰ ĐỘNG VẼ LẠI BIỂU ĐỒ MỚI - SIÊU CHUYÊN NGHIỆP
                 },
                 year, month, day
         );
         datePickerDialog.show();
+
     }
 
     // Cập nhật hiển thị ngày trên TextView
@@ -159,9 +221,12 @@ public class ReportActivity extends AppCompatActivity {
 
                 currentBills = bills; // ✅ CẬP NHẬT DANH SÁCH HIỆN TẠI
 
-                // Tính và hiển thị tổng doanh thu
-                calculateTotalRevenue(bills);
-
+                // ✅ BƯỚC 1: TÍNH TỔNG DOANH THU trong luồng nền
+                long totalRevenue = calculateTotalRevenue(bills);
+                // ✅ BƯỚC 2: CẬP NHẬT UI HIỂN THỊ TỔNG TIỀN TRONG LUỒNG CHÍNH
+                if (tvTotalRevenue != null) {
+                    tvTotalRevenue.setText("Tổng Doanh Thu: " + currencyFormat.format(totalRevenue) + " VNĐ");
+                }
                 // ✅ HIỂN THỊ/ẨN THÔNG BÁO KHÔNG CÓ DỮ LIỆU
                 if (bills.isEmpty()) {
                     tvNoDataMessage.setVisibility(View.VISIBLE);
@@ -182,9 +247,9 @@ public class ReportActivity extends AppCompatActivity {
                 .mapToLong(bill -> bill.Total_Price != null ? bill.Total_Price : 0)
                 .sum();
 
-        if (tvTotalRevenue != null) {
-            tvTotalRevenue.setText("Tổng Doanh Thu: " + currencyFormat.format(totalRevenue) + " VNĐ");
-        }
+//        if (tvTotalRevenue != null) {
+//            tvTotalRevenue.setText("Tổng Doanh Thu: " + currencyFormat.format(totalRevenue) + " VNĐ");
+//        }
         return totalRevenue; // ✅ TRẢ VỀ TỔNG DOANH THU
     }
 
@@ -367,7 +432,7 @@ public class ReportActivity extends AppCompatActivity {
 
             String checkin = bill.Date_Checkin != null ? dateFormat.format(bill.Date_Checkin) : "-";
             String checkout = bill.Date_Checkout != null ? dateFormat.format(bill.Date_Checkout) : "-";
-            String total = currencyFormat.format(bill.Total_Price != null ? bill.Total_Price : 0) + " VNĐ";
+            String total = currencyFormat.format(bill.Total_Price != null ? bill.Total_Price : 0) + " ₫";
 
             // Dòng chẵn/lẻ có màu nền nhạt để dễ đọc
             if (i % 2 == 1) {
