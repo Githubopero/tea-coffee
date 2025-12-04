@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<inset xmlns:android="http://schemas.android.com/apk/res/android"
+    android:insetLeft="8dp"
+    android:insetRight="8dp">
+
+    <shape android:shape="rectangle">
+        <!-- Độ dày đường kẻ -->
+        <size android:height="1dp" />
+        <!-- Màu xám nhạt cho mềm mắt -->
+        <solid android:color="#FFE0E0E0" />
+    </shape>
+
+</inset>

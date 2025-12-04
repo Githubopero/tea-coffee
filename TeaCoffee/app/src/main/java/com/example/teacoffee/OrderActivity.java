@@ -1,12 +1,12 @@
 package com.example.teacoffee;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.LinearLayout;
-import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -32,6 +32,7 @@ public class OrderActivity extends AppCompatActivity {
     private LinearLayout catContainer, listContainer;
     private TextView tvTotalQty, tvSubtotal, tvDiscount, tvGrand;
     private Button btnSave, btnCancel;
+
     private int currentCatId = 0;
     private HashMap<Integer, Double> catDiscountRate = new HashMap<>(); // CategoryId -> rate
 
@@ -40,6 +41,9 @@ public class OrderActivity extends AppCompatActivity {
     private List<FoodCategory> categories = new ArrayList<>();
     private HashMap<Integer, Integer> cartQty = new HashMap<>(); // FoodId -> qty
     private HashMap<Integer, Food> foodIndex = new HashMap<>();  // FoodId -> Food
+
+    // CategoryId -> Button chip để đổi màu khi chọn
+    private HashMap<Integer, Button> catButtons = new HashMap<>();
 
     private final NumberFormat VND = NumberFormat.getCurrencyInstance(new Locale("vi", "VN"));
     private int selectedTableId = -1;
@@ -58,26 +62,28 @@ public class OrderActivity extends AppCompatActivity {
         tvDiscount    = findViewById(R.id.tvDiscount);
         tvGrand       = findViewById(R.id.tvGrandTotal);
         btnSave       = findViewById(R.id.btnSave);
-        btnCancel = findViewById(R.id.btnCancel);
-
+        btnCancel     = findViewById(R.id.btnCancel);
 
         // nhận tableId
         selectedTableId = getIntent().getIntExtra("tableId", -1);
 
         setupTableSpinner();
         loadCategories();
+
         // đảm bảo currentCatId có giá trị
         if (!categories.isEmpty()) {
             currentCatId = categories.get(0).Food_Category_Id;
         }
+
         // nạp giỏ theo bàn được nhận từ Intent
         refreshCartForTable();
 
-
         if (!categories.isEmpty()) {
             buildCategoryChips(categories);
-            loadFoodsByCategory(categories.get(0).Food_Category_Id);
+            // load lại món lần đầu cho category hiện tại
+            loadFoodsByCategory(currentCatId);
         }
+
         btnCancel.setOnClickListener(v -> {
             new AlertDialog.Builder(this)
                     .setTitle("Hủy hóa đơn")
@@ -91,12 +97,17 @@ public class OrderActivity extends AppCompatActivity {
                     .show();
         });
 
-
         btnSave.setOnClickListener(v -> {
-            if (selectedTableId <= 0) { Toast.makeText(this, "Thiếu bàn!", Toast.LENGTH_SHORT).show(); return; }
-            if (cartQty.isEmpty())     { Toast.makeText(this, "Chưa chọn món!", Toast.LENGTH_SHORT).show(); return; }
+            if (selectedTableId <= 0) {
+                Toast.makeText(this, "Thiếu bàn!", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            if (cartQty.isEmpty()) {
+                Toast.makeText(this, "Chưa chọn món!", Toast.LENGTH_SHORT).show();
+                return;
+            }
 
-            Totals t = computeTotals(); // <-- dùng hàm mới
+            Totals t = computeTotals();
             var db = MyDatabase.getINSTANCE(this);
 
             // 1) Lấy (hoặc tạo) bill mở của bàn hiện tại
@@ -146,7 +157,6 @@ public class OrderActivity extends AppCompatActivity {
             finish();
         });
 
-
         activateTabsForOrder();
     }
 
@@ -165,11 +175,14 @@ public class OrderActivity extends AppCompatActivity {
             spnTable.setSelection(selectedTableId - 1, true);
         }
         spnTable.setOnItemSelectedListener(new android.widget.AdapterView.OnItemSelectedListener() {
-            @Override public void onItemSelected(android.widget.AdapterView<?> parent, View view, int position, long id) {
+            @Override
+            public void onItemSelected(android.widget.AdapterView<?> parent, View view, int position, long id) {
                 selectedTableId = position + 1;   // vì danh sách "Bàn số 1..20"
                 refreshCartForTable();            // nạp lại giỏ theo bàn đang chọn
             }
-            @Override public void onNothingSelected(android.widget.AdapterView<?> parent) { }
+
+            @Override
+            public void onNothingSelected(android.widget.AdapterView<?> parent) { }
         });
     }
 
@@ -185,30 +198,29 @@ public class OrderActivity extends AppCompatActivity {
                 r = 0.055; // 5.5%
             } else if (name.contains("sinh tố") || name.contains("sinh to") || name.contains("smoothie")) {
                 r = 0.10;  // 10%
-            }else {
-                r= 0.10;
+            } else {
+                r = 0.10;
             }
-            // có thể thêm: else if (name.contains("trà") || name.contains("tea")) r = 0.0;
             catDiscountRate.put(c.Food_Category_Id, r);
         }
     }
 
     private void buildCategoryChips(List<FoodCategory> cats) {
         catContainer.removeAllViews();
+        catButtons.clear();
 
         for (FoodCategory c : cats) {
-            // Tạo Button “chip” bằng code
             Button chip = new Button(this);
             chip.setText(c.Food_Category_Name);
 
-            // Style đơn giản giống @style/ChipCategory
+            // style giống chip
             chip.setAllCaps(false);
+            chip.setTextSize(14);
             chip.setTextColor(0xFF4E4E4E);
-            chip.setBackgroundResource(R.drawable.bg_chip_inactive);
+            chip.setBackgroundResource(R.drawable.chip_inactive);
             int padH = dp(14), padV = dp(8);
             chip.setPadding(padH, padV, padH, padV);
 
-            // Margin end 8dp
             LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
                     LinearLayout.LayoutParams.WRAP_CONTENT,
                     LinearLayout.LayoutParams.WRAP_CONTENT
@@ -216,16 +228,31 @@ public class OrderActivity extends AppCompatActivity {
             lp.setMarginEnd(dp(8));
             chip.setLayoutParams(lp);
 
-            chip.setOnClickListener(v -> loadFoodsByCategory(c.Food_Category_Id));
+            // lưu lại để đổi màu sau này
+            catButtons.put(c.Food_Category_Id, chip);
+
+            chip.setOnClickListener(v -> {
+                setActiveCategory(c.Food_Category_Id);   // đổi màu chip
+                loadFoodsByCategory(c.Food_Category_Id); // load món
+            });
+
             catContainer.addView(chip);
+        }
+
+        // set active mặc định
+        if (!cats.isEmpty()) {
+            if (currentCatId == 0) currentCatId = cats.get(0).Food_Category_Id;
+            setActiveCategory(currentCatId);
         }
     }
 
-
     private void loadFoodsByCategory(int catId) {
+        // đảm bảo chip cũng đổi màu khi hàm được gọi từ nơi khác
+        setActiveCategory(catId);
+
         listContainer.removeAllViews();
         foodIndex.clear();
-        currentCatId = catId;   // nhớ category đang xem
+        currentCatId = catId;
 
         List<Food> foods = MyDatabase.getINSTANCE(this).getFoodDAO().getByCategory(catId);
         LayoutInflater inflater = LayoutInflater.from(this);
@@ -258,7 +285,8 @@ public class OrderActivity extends AppCompatActivity {
             btnMinus.setOnClickListener(v -> {
                 int q = cartQty.getOrDefault(f.Food_Id, 0);
                 if (q > 0) q--;
-                if (q == 0) cartQty.remove(f.Food_Id); else cartQty.put(f.Food_Id, q);
+                if (q == 0) cartQty.remove(f.Food_Id);
+                else cartQty.put(f.Food_Id, q);
                 tvQty.setText(String.valueOf(q));
                 updateTotals();
             });
@@ -268,6 +296,7 @@ public class OrderActivity extends AppCompatActivity {
 
         updateTotals();
     }
+
     private static class Totals {
         long sub;        // tổng tiền hàng
         long discount;   // tổng tiền CK
@@ -290,11 +319,7 @@ public class OrderActivity extends AppCompatActivity {
             long line = (long) f.Price * q;
             t.sub += line;
             t.totalQty += q;
-//            Tiền hàng = S
-//            Tiền cà phê = C
-//            Tiền sinh tố = M
-//            Chiết khấu = D = 0.055*C + 0.10*M
-//            % hiệu dụng hiển thị ≈ (D / S) * 100
+
             double rate = catDiscountRate.getOrDefault(f.Food_Category_Id, 0.0);
             t.discount += Math.round(line * rate);
         }
@@ -307,20 +332,24 @@ public class OrderActivity extends AppCompatActivity {
         Totals t = computeTotals();
         tvTotalQty.setText("Tổng số lượng: " + t.totalQty);
         tvSubtotal.setText("Tiền hàng: " + VND.format(t.sub));
-        // hiển thị cả tiền CK và % hiệu dụng để rõ khi nhiều danh mục
+
+        double percent = (t.sub > 0)
+                ? (t.discount * 100.0 / t.sub)
+                : 0.0;
+
         tvDiscount.setText(
                 "Chiết khấu: " + VND.format(t.discount)
-                        + " (≈ " + String.format(Locale.getDefault(), "%.2f", (t.discount * 100.0 / Math.max(1, t.sub))) + "%)"
+                        + " (≈ " + String.format(Locale.getDefault(), "%.2f", percent) + "%)"
         );
 
         tvGrand.setText("Thành tiền: " + VND.format(t.grand));
     }
 
-
     private int dp(int value) {
         return Math.round(value * getResources().getDisplayMetrics().density);
     }
-    private void activateTabsForOrder(){
+
+    private void activateTabsForOrder() {
         View tabReserve = findViewById(R.id.tabReserve);
         View tabOrder   = findViewById(R.id.tabOrder);
         View tabPayment = findViewById(R.id.tabPayment);
@@ -329,15 +358,22 @@ public class OrderActivity extends AppCompatActivity {
         tabOrder.setBackgroundResource(R.drawable.bg_chip_active);
         tabPayment.setBackgroundResource(R.drawable.bg_chip_inactive);
 
-        ((android.widget.ImageView)findViewById(R.id.ivReserve)).setColorFilter(android.graphics.Color.parseColor("#4E4E4E"));
-        ((android.widget.TextView)findViewById(R.id.tvReserve)).setTextColor(android.graphics.Color.parseColor("#4E4E4E"));
+        ((android.widget.ImageView) findViewById(R.id.ivReserve))
+                .setColorFilter(Color.parseColor("#4E4E4E"));
+        ((android.widget.TextView) findViewById(R.id.tvReserve))
+                .setTextColor(Color.parseColor("#4E4E4E"));
 
-        ((android.widget.ImageView)findViewById(R.id.ivOrder)).setColorFilter(android.graphics.Color.WHITE);
-        ((android.widget.TextView)findViewById(R.id.tvOrder)).setTextColor(android.graphics.Color.WHITE);
+        ((android.widget.ImageView) findViewById(R.id.ivOrder))
+                .setColorFilter(Color.WHITE);
+        ((android.widget.TextView) findViewById(R.id.tvOrder))
+                .setTextColor(Color.WHITE);
 
-        ((android.widget.ImageView)findViewById(R.id.ivPayment)).setColorFilter(android.graphics.Color.parseColor("#4E4E4E"));
-        ((android.widget.TextView)findViewById(R.id.tvPayment)).setTextColor(android.graphics.Color.parseColor("#4E4E4E"));
+        ((android.widget.ImageView) findViewById(R.id.ivPayment))
+                .setColorFilter(Color.parseColor("#4E4E4E"));
+        ((android.widget.TextView) findViewById(R.id.tvPayment))
+                .setTextColor(Color.parseColor("#4E4E4E"));
     }
+
     private void refreshCartForTable() {
         cartQty.clear();
         currentOpenBillId = null;
@@ -361,5 +397,20 @@ public class OrderActivity extends AppCompatActivity {
         loadFoodsByCategory(currentCatId); // vì tvQty đọc từ cartQty nên sẽ hiện đúng số lượng
     }
 
+    // đổi màu các chip theo category đang chọn
+    private void setActiveCategory(int catId) {
+        currentCatId = catId;
+        for (Integer id : catButtons.keySet()) {
+            Button b = catButtons.get(id);
+            if (b == null) continue;
 
+            if (id == catId) {
+                b.setBackgroundResource(R.drawable.chip_active);
+                b.setTextColor(Color.WHITE);
+            } else {
+                b.setBackgroundResource(R.drawable.chip_inactive);
+                b.setTextColor(0xFF4E4E4E);
+            }
+        }
+    }
 }
